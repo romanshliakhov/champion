@@ -1,0 +1,106 @@
+.footer {
+  position: relative;
+  width: 100%;
+  height: 335px;
+  background-color: #251433;
+  padding: 53px 0 40px;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__payments {
+    width: 753px;
+    height: 95px;
+  }
+
+  &__primacy {
+    margin-top: 30px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #6F6F6F;
+    margin-bottom: 23px;
+  }
+
+  &__license {
+    max-width: 1050px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    text-align: center;
+    color: #fff;
+  }
+
+  &__license-mail {
+    font-weight: 700;
+    color: #C5B873;
+  }
+
+
+  &__socials {
+    position: absolute;
+    top: 0;
+    right: 117px;
+    width: 86px;
+    height: 306px;
+    z-index: 5;
+  }
+
+  &__social-item {
+    position: relative;
+    height: 86px;
+    width: 86px;
+    z-index: 10;
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .telegram::after {
+      content: "";
+      position: absolute;
+      background-image: url("../img/telegram.png");
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .watsapp::after {
+      content: "";
+      position: absolute;
+      background-image: url("../img/watsapp.png");
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .chat::after {
+      content: "";
+      position: absolute;
+      background-image: url("../img/chat.png");
+      height: 100%;
+      width: 100%;
+      left: 0;
+      top: 0;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
+  &__social-link {
+    height: 86px;
+    width: 86px;
+  }
+}
