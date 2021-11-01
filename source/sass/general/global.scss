@@ -10,6 +10,7 @@ body {
   font-size: 25px;
   line-height: 33px;
   font-weight: 700;
+  color: #fff;
 }
 
 .body__scroll {
@@ -93,12 +94,8 @@ a {
   clip-path: inset(100%);
 }
 
-.site-container {
-  overflow: hidden;
-}
-
 .container {
-  max-width: 1626px;
+  max-width: 1600px;
   padding: 0 15px;
   margin: 0 auto;
 }

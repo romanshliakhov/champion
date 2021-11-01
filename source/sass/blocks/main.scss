@@ -1,0 +1,17 @@
+.main {
+  background-image: url("../img/background.png");
+  height: 2514px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+
+  &__head {
+    background-image: url("../img/logo.png");
+    height: 689px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+}
