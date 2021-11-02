@@ -26,10 +26,10 @@
       <div class="container">
         <section class="enter">
           <div class="enter__login enter__btn">
-            <button class="enter__login-btn">Вход</button>
+            <button class="enter__login-btn" data-modal="enter">Вход</button>
           </div>
           <div class="enter__reg enter__btn">
-            <button class="enter__reg-btn">Регистрация</button>
+            <button class="enter__reg-btn" data-modal="registration">Регистрация</button>
           </div>
         </section>
 
@@ -44,7 +44,7 @@
             <div class="games__item-information">
               <div class="games__item-info">
                 <a class="games__item-status games__item-status--new" href="#">new</a>
-                <a class="games__item-status games__item-status--demo" href="#">demo</a>
+                <button class="games__item-status games__item-status--demo popup-link" id="popup">demo</button>
               </div>
               <div class="games__item-title">ultra hot deluxe</div>
             </div>
@@ -200,6 +200,25 @@
         </li>
       </ul>
   </footer>
+
+  <div class="overlay">
+    <div class="modal" id="enter"></div>
+    <div class="modal modal__reg" id="registration">
+      <div class="modal__close" id="modal-close">&times;</div>
+      <div class="modal__reg-text">Для регистрации в системе,
+        пожалуйста, обратитесь в <a class="modal__reg-link" href="#">техподдержку</a></div>
+    </div>
+
+    <div class="popup" id="popup">
+      <div class="popup__body">
+        <div class="popup__content">
+          <div class="popup__text">Чтобы играть без ограничений, пожалуйста, выполните вход</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
   <script src="js/jquery-3.5.1.js"></script>
   <script src="js/slick.min.js"></script>
