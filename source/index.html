@@ -26,10 +26,10 @@
       <div class="container">
         <section class="enter">
           <div class="enter__login enter__btn">
-            <button class="enter__login-btn" data-modal="enter">Вход</button>
+            <button class="enter__login-btn" data-path="enter" data-animation="fade" data-speed="300">Вход</button>
           </div>
           <div class="enter__reg enter__btn">
-            <button class="enter__reg-btn" data-modal="registration">Регистрация</button>
+            <button class="enter__reg-btn" data-path="registration" data-animation="fade" data-speed="300">Регистрация</button>
           </div>
         </section>
 
@@ -201,22 +201,31 @@
       </ul>
   </footer>
 
-  <div class="overlay">
-    <div class="modal" id="enter"></div>
-    <div class="modal modal__reg" id="registration">
-      <div class="modal__close" id="modal-close">&times;</div>
-      <div class="modal__reg-text">Для регистрации в системе,
-        пожалуйста, обратитесь в <a class="modal__reg-link" href="#">техподдержку</a></div>
-    </div>
-
-    <div class="popup" id="popup">
-      <div class="popup__body">
-        <div class="popup__content">
-          <div class="popup__text">Чтобы играть без ограничений, пожалуйста, выполните вход</div>
+  <div class="modal">
+		<div class="modal__container" data-target="registration">
+			<div class="modal__reg modal-content ">
+        <button class="modal__close modal-close">&times;</button>
+        <div class="modal__reg-text">Для регистрации в системе,
+          пожалуйста, обратитесь в <a class="modal__reg-link" href="#">техподдержку</a></div>
+			</div>
+		</div>
+    <div class="modal__container" data-target="enter">
+			<div class="modal__enter modal-content ">
+        <button class="modal__close modal-close">&times;</button>
+        <div class="modal__title">Вход</div>
+        <div class="modal__tabs">
+          <button class="modal__tab modal__tab-phone">по телефону</button>
+          <button class="modal__tab modal__tab-password">с паролем</button>
         </div>
-      </div>
-    </div>
-  </div>
+			</div>
+		</div>
+
+		<div class="modal__container" data-target="limits">
+			<div class="modal-content">
+				<div class="popup__text">Чтобы играть без ограничений, пожалуйста, выполните вход</div>
+			</div>
+		</div>
+	</div>
 
 
 
