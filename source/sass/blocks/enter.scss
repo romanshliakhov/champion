@@ -36,6 +36,7 @@
     padding: 15px 43px 11px 68px;
     text-transform: uppercase;
     position: relative;
+    font-weight: 700;
 
     &::after {
       content: "";
@@ -55,11 +56,14 @@
     padding: 15px 32px 11px 58px;
     text-transform: uppercase;
     position: relative;
+    font-weight: 700;
 
     &::after {
       content: "";
       position: absolute;
       background-image: url("../img/reg.svg");
+      background-position: center;
+      background-repeat: no-repeat;
       width: 20px;
       height: 18px;
       top: 50%;
@@ -67,4 +71,64 @@
       left: 31px;
     }
   }
+
+  &__cashbox-btn {
+    padding: 15px 37px 11px 61px;
+    text-transform: uppercase;
+    position: relative;
+    font-weight: 700;
+
+    &::after {
+      content: "";
+      position: absolute;
+      background-image: url("../img/cashbox.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 20px;
+      height: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 31px;
+    }
+  }
+
+  &__profile-btn {
+    padding: 15px 37px 11px 61px;
+    text-transform: uppercase;
+    position: relative;
+    font-weight: 700;
+
+    &::after {
+      content: "";
+      position: absolute;
+      background-image: url("../img/profile.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 20px;
+      height: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 31px;
+    }
+  }
+
+  &__info {
+    display: flex;
+  }
+
+  &__info-item {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  &__info-decoration {
+    margin-left: 5px;
+    color: #C5B873;
+
+    &--current {
+      text-decoration: underline;
+    }
+  }
 }
+
