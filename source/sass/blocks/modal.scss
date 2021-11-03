@@ -297,6 +297,10 @@
 
   &:active {
     color: rgba(255, 255, 255, 0.75);
+
+    &::after {
+      opacity: 0.75;
+    }
   }
 }
 
@@ -306,6 +310,15 @@
 
 .modal__btn-sber::after {
   content: "";
+  position: absolute;
+  background-image: url("../img/sber.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 42px;
+  height: 42px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 165px;
 }
 
 .modal__btn-crypto {
@@ -313,11 +326,29 @@
 
   &::after {
     content: "";
+    position: absolute;
+    background-image: url("../img/crypto.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 42px;
+    height: 42px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 185px;
   }
 }
 
 .modal__btn-qiwi::after {
   content: "";
+  position: absolute;
+  background-image: url("../img/qiwi.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 42px;
+  height: 42px;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 235px;
 }
 
 .modal__qiwilimits {
