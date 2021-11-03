@@ -238,6 +238,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:hover {
+    box-shadow: 0px 0px 20px rgba(134, 255, 168, 0.25);
+  }
+
+  &:active {
+    color: rgba(255, 255, 255, 0.75);
+  }
 }
 
 .modal__rewind-btn {

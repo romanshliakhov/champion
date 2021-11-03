@@ -12,11 +12,11 @@
 </head>
 
 <body class="body-index">
-  <div class="header">
-    <div class="header__news">
-      <div class="header__news-content">
-        <p class="header__news-text">Good news, everybody! From today <span>you can win up to $70000!</span> Interested in? Follow this link to get more information!</p>
-        <p class="header__news-text"><span>Top game ever!</span> Started from last week and got more than million follovers!</p>
+  <div class="marquee">
+    <div class="marquee__news">
+      <div class="marquee__news-content">
+        <p class="marquee__news-text">Good news, everybody! From today <span>you can win up to $70000!</span> Interested in? Follow this link to get more information!</p>
+        <p class="marquee__news-text"><span>Top game ever!</span> Started from last week and got more than million follovers!</p>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
   <main class="main">
     <div class="main__head">
       <div class="container">
-        <section class="enter">
+        <section class="enter enter__center">
           <div class="enter__login enter__btn">
             <button class="enter__login-btn" data-path="enter" data-animation="fade" data-speed="300">Вход</button>
           </div>
@@ -34,6 +34,18 @@
         </section>
 
         <section class="banner">
+          <div class="banner__swiper swiper-container">
+            <div class="swiper-wrapper">
+              <div class="banner__slide swiper-slide">
+                <p>promo banner 1 here 1580x440</p>
+              </div>
+              <div class="banner__slide swiper-slide">promo banner 2 here 1580x440</div>
+              <div class="banner__slide swiper-slide">promo banner 3 here 1580x440</div>
+              <div class="banner__slide swiper-slide">promo banner 4 here 1580x440</div>
+              <div class="banner__slide swiper-slide">promo banner 5 here 1580x440</div>
+            </div>
+          </div>
+          <div class="banner__pagination swiper-pagination"></div>
         </section>
 
         <section class="games">
@@ -233,7 +245,7 @@
             </div>
             <button class="modal__content-btn">получить код</button>
           </div>
-          
+
           <div class="modal__tabs-content tabs__content" data-tabs-target="password">
             <div class="modal__content-inner">
               <div class="modal__inner-top">
@@ -259,10 +271,7 @@
 		</div>
 	</div>
 
-
-
-  <script src="js/jquery-3.5.1.js"></script>
-  <script src="js/slick.min.js"></script>
+  <script src="js/swiper.min.js"></script>
   <script src="js/common.min.js"></script>
 </body>
 

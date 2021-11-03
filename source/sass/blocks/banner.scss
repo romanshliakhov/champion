@@ -1,8 +1,32 @@
 .banner {
+  position: relative;
   margin-top: 32px;
   height: 470px;
-  background-color: #fff;
-  background: #1B1328;
   border-radius: 12px;
   border: 6px solid #867069;
+
+  &__swiper {
+    height: 100%;
+    border-radius: 6px;
+  }
+
+  &__pagination {
+    position: absolute;
+    bottom: -17px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 30px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.2) 100%), #887263;
+    background-blend-mode: color-burn, normal;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25), inset -1px -1px 2px rgba(0, 0, 0, 0.5), inset 2px 2px 2px #9A837D;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
+
+
+
+
