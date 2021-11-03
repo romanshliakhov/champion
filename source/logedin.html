@@ -228,59 +228,64 @@
   </footer>
 
   <div class="modal">
-		<div class="modal__container" data-target="registration">
-			<div class="modal__reg modal-content ">
+    <div class="modal__container" data-target="cashbox">
+			<div class="modal__cashbox modal-content ">
         <button class="modal__close modal-close">&times;</button>
-        <div class="modal__reg-text">Для регистрации в системе,
-          пожалуйста, обратитесь в <a class="modal__reg-link" href="#">техподдержку</a></div>
-			</div>
-		</div>
-
-    <div class="modal__container" data-target="enter">
-			<div class="modal__enter modal-content ">
-        <button class="modal__close modal-close">&times;</button>
-        <div class="modal__title">Вход</div>
+        <div class="modal__title">Касса</div>
         <div class="modal__tabs tabs">
           <ul class="modal__tabs-list tabs__list">
             <li class="tabs__item">
-              <button class="modal__tab modal__tab-phone tabs__btn tabs__btn--active" data-tabs-path="phone">по телефону</button>
+              <button class="modal__tab modal__tab-add tabs__btn tabs__btn--active" data-tabs-path="add">Пополнение</button>
             </li>
             <li class="tabs__item">
-              <button class="modal__tab modal__tab-password tabs__btn" data-tabs-path="password">с паролем</button>
+              <button class="modal__tab modal__tab-cashier tabs__btn" data-tabs-path="cashier">Вывод</button>
+            </li>
+            <li class="tabs__item">
+              <button class="modal__tab modal__tab-history tabs__btn" data-tabs-path="history">История платежей</button>
             </li>
           </ul>
 
-          <div class="modal__tabs-content tabs__content tabs__content--active" data-tabs-target="phone">
+          <div class="modal__tabs-content tabs__content tabs__content--active" data-tabs-target="add">
             <div class="modal__content-inner">
-              <div class="modal__inner-top">
-                <div class="modal__inner-text">Введите номер телефона:</div>
-                <input class="modal__inner-input" type="tel" placeholder="+X (XXX) XXX-XX-XX">
+              <div class="modal__inner-middle">
+                <div class="modal__inner-title">Выберите тип пополнения:</div>
+                <button class="modal__inner-btn modal__btn-sber">перевод сбербанк-онлайн</button>
+                <button class="modal__inner-btn modal__btn-crypto">Криптовалюты (скоро)</button>
+                <button class="modal__inner-btn modal__btn-qiwi" data-path="qiwi-limits" data-animation="fade" data-speed="300">Терминалы QIWI</button>
               </div>
             </div>
-            <button class="modal__content-btn">получить код</button>
           </div>
 
-          <div class="modal__tabs-content tabs__content" data-tabs-target="password">
+          <div class="modal__tabs-content tabs__content" data-tabs-target="cashier">
             <div class="modal__content-inner">
-              <div class="modal__inner-top">
-                <div class="modal__inner-text">Введите номер телефона:</div>
-                <input class="modal__inner-input" type="tel" placeholder="+X (XXX) XXX-XX-XX">
-              </div>
-              <div class="modal__inner-bottom">
-                <div class="modal__inner-text">Введите пароль:</div>
-                <input class="modal__inner-input" type="text" placeholder="****">
-              </div>
+              <button class="modal__rewind-btn">добавить карту</button>
             </div>
             <button class="modal__content-btn">войти</button>
-            <button class="modal__rewind-btn">Напомнить пароль</button>
+          </div>
+
+          <div class="modal__tabs-content tabs__content" data-tabs-target="history">
+            <div class="modal__content-inner">
+
+            </div>
           </div>
         </div>
 			</div>
 		</div>
 
-		<div class="modal__container" data-target="limits">
+    <div class="modal__container" data-target="qiwi-limits">
 			<div class="modal-content">
-				<div class="popup__text">Чтобы играть без ограничений, пожалуйста, выполните вход</div>
+				<div class="modal__qiwilimits">
+          <button class="modal__close modal-close">&times;</button>
+          <ul class="modal__qiwilimits-list">
+            <li class="modal__qiwilimits-item">В головном меню необходимо выбрать Qiwi-кошелек.</li>
+            <li class="modal__qiwilimits-item">Нажать на кнопку «Пополнить счет»;</li>
+            <li class="modal__qiwilimits-item">Ввести номер кошелька для пополнения. Он будет совпадать с номером телефона владельца. Телефон прописывается в десятизначном формате, начиная с 9;</li>
+            <li class="modal__qiwilimits-item">Необходимо несколько раз подтвердить правильность ввода данных;</li>
+            <li class="modal__qiwilimits-item">Поле комментарий можно оставить пустым, если вы пополняете свой кошелек. В случае, если Киви-кошелек является реквизитом для оплаты покупки, желательно указать собственную фамилию, чтобы продавцу было проще определить, откуда поступили деньги;</li>
+            <li class="modal__qiwilimits-item">Внесите деньги. Внесенная сумма будет отображаться на экране с учетом комиссии;</li>
+            <li class="modal__qiwilimits-item">Нажмите кнопку «Оплатить» и не забудьте забрать чек.</li>
+          </ul>
+        </div>
 			</div>
 		</div>
 	</div>
