@@ -103,24 +103,23 @@ class Modal {
           this.options.isClose(this);
           this.isOpen = false;
           this.focusTrap();
-
       }
   }
 
   focusCatch(e) {
       const focusable = this.modalContainer.querySelectorAll(this.focusElements);
-  const focusArray = Array.prototype.slice.call(focusable);
-  const focusedIndex = focusArray.indexOf(document.activeElement);
+      const focusArray = Array.prototype.slice.call(focusable);
+      const focusedIndex = focusArray.indexOf(document.activeElement);
 
-  if (e.shiftKey && focusedIndex === 0) {
-    focusArray[focusArray.length - 1].focus();
-    e.preventDefault();
-  }
+      if (e.shiftKey && focusedIndex === 0) {
+        focusArray[focusArray.length - 1].focus();
+        e.preventDefault();
+      }
 
-  if (!e.shiftKey && focusedIndex === focusArray.length - 1) {
-    focusArray[0].focus();
-    e.preventDefault();
-  }
+      if (!e.shiftKey && focusedIndex === focusArray.length - 1) {
+        focusArray[0].focus();
+        e.preventDefault();
+      }
   }
 
   focusTrap() {
@@ -130,39 +129,38 @@ class Modal {
       } else {
           this.previousActiveElement.focus();
       }
-
   }
 
   disableScroll() {
       let pagePosition = window.scrollY;
-  this.lockPadding();
-  document.body.classList.add('disable-scroll');
-  document.body.dataset.position = pagePosition;
-  document.body.style.top = -pagePosition + 'px';
+      this.lockPadding();
+      document.body.classList.add('disable-scroll');
+      document.body.dataset.position = pagePosition;
+      document.body.style.top = -pagePosition + 'px';
   }
 
   enableScroll() {
       let pagePosition = parseInt(document.body.dataset.position, 10);
-  this.unlockPadding();
-  document.body.style.top = 'auto';
-  document.body.classList.remove('disable-scroll');
-  window.scroll({ top: pagePosition, left: 0 });
-  document.body.removeAttribute('data-position');
+      this.unlockPadding();
+      document.body.style.top = 'auto';
+      document.body.classList.remove('disable-scroll');
+      window.scroll({ top: pagePosition, left: 0 });
+      document.body.removeAttribute('data-position');
   }
 
   lockPadding() {
-      let paddingOffset = window.innerWidth - document.body.offsetWidth + 'px';
-  this.fixBlocks.forEach((el) => {
-    el.style.paddingRight = paddingOffset;
-  });
-  document.body.style.paddingRight = paddingOffset;
+    let paddingOffset = window.innerWidth - document.body.offsetWidth + 'px';
+    this.fixBlocks.forEach((el) => {
+      el.style.paddingRight = paddingOffset;
+    });
+    document.body.style.paddingRight = paddingOffset;
   }
 
   unlockPadding () {
-      this.fixBlocks.forEach((el) => {
+    this.fixBlocks.forEach((el) => {
     el.style.paddingRight = '0px';
-  });
-  document.body.style.paddingRight = '0px';
+    });
+    document.body.style.paddingRight = '0px';
   }
 }
 
