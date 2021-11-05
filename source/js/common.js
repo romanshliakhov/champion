@@ -41,13 +41,18 @@ class Modal {
       if (this.modal) {
           document.addEventListener('click', function (e) {
               const clickedElement = e.target.closest('[data-path]');
+              console.log('text');
               if (clickedElement) {
+                  if (this.isOpen) {
+                    this.close();
+                  }
                   let target = clickedElement.dataset.path;
                   let animation = clickedElement.dataset.animation;
                   let speed = clickedElement.dataset.speed;
                   this.animation = animation ? animation : 'fade';
                   this.speed = speed ? parseInt(speed) : 300;
                   this.modalContainer = document.querySelector(`[data-target="${target}"]`);
+                  console.log('test1');
                   this.open();
                   return;
               }
