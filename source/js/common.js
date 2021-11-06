@@ -1,5 +1,5 @@
 // slider
-let swiper = new Swiper(".banner__swiper", {
+let banner = new Swiper('.banner__swiper', {
   loop: true,
   autoplay: {
     delay: 2500,
@@ -8,6 +8,18 @@ let swiper = new Swiper(".banner__swiper", {
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
+  },
+});
+
+let bonusBanner = new Swiper('.bonus__banner-swiper', {
+  loop: true,
+  loopedSlides: 0,
+  observer: true,
+  observeParents: true,
+  observeSlideChildren: true,
+  autoplay: {
+    delay: 3500,
+    disableOnInteraction: false,
   },
 });
 

@@ -1,0 +1,23 @@
+.more {
+  margin: 115px auto 0;
+  width: 300px;
+  height: 71px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg,rgba(180,108,255,.5) 0,rgba(45,25,61,.229167) 69.27%,transparent 100%),#1b1328;
+  border-radius: 12px;
+  border: 6px solid #684c44;
+
+  &__btn {
+    padding: 15px 38px;
+
+    svg path {
+      fill: #fff;
+    }
+  }
+
+  &__btn-text {
+    text-transform: uppercase;
+  }
+}

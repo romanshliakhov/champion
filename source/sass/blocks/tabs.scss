@@ -18,6 +18,7 @@
 
 .tabs__content {
   display: none;
+  min-width: 0;
 }
 
 .tabs__content--active {

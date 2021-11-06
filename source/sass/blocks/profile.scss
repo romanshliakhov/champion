@@ -1,0 +1,81 @@
+.profile {
+  margin: 78px 0;
+}
+
+.profile__id {
+  color: #C5B873;
+  font-weight: 700;
+}
+
+.profile__form {
+  margin-top: 69px;
+}
+
+.profile__status {
+  margin-top: 60px;
+}
+
+.profile__status-current {
+  font-weight: 700;
+  text-transform: uppercase;
+
+  &--bronze {
+    color: #B9783C;
+  }
+
+  &--silver {
+    color: #AEAEAE;
+  }
+
+  &--gold {
+    color: #C5B873;
+  }
+}
+
+
+.profile__status-progress {
+  height: 80px;
+  width: 100%;
+  border-radius: 12px;
+  position: relative;
+}
+
+.profile__status-bar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 48px;
+  line-height: 63px;
+  font-weight: 700;
+}
+
+.profile__status-line {
+  height: 100%;
+  border-radius: 12px;
+  background-color: #fff;
+
+  span {
+    display: block;
+    height: 100%;
+    border-radius: 12px 0px 0px 12px;
+  }
+
+  &--bronze {
+    background-color: #B9783C;
+  }
+
+  &--silver {
+    background-color: #AEAEAE;
+  }
+
+  &--gold {
+    background-color: #C5B873;
+  }
+}
+
+.profile__btn {
+  margin-top: 96px;
+}
+
