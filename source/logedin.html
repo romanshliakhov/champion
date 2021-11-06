@@ -31,7 +31,7 @@
           <div class="enter__info">
             <div class="enter__info-item">
               <p class="enter__info-text">Игровой счёт:</p>
-              <span class="enter__info-decoration enter__info-decoration--current">3000₽</span>
+              <button class="enter__info-decoration enter__info-decoration--current" data-path="sberbank" data-animation="fade" data-speed="300">3000₽</button>
             </div>
             <div class="enter__info-item">
               <p class="enter__info-text">Бонусный счёт: </p>
@@ -234,10 +234,50 @@
           </div>
 
           <div class="modal__tabs-content tabs__content" data-tabs-target="cashier">
-            <div class="modal__content-inner">
+            <div class="cashier">
+              <div class="cashier__withraw">
+                <div class="modal__inner-text">Введите сумму вывода:</div>
+                <form class="cashier__form">
+                  <input class="modal__inner-input" type="text" placeholder="Ввести">
+                  <div class="cashier__form-btns">
+                    <input type="button" value="500" class="cashier__form-btn">
+                    <input type="button" value="1000" class="cashier__form-btn">
+                    <input type="button" value="2000" class="cashier__form-btn">
+                    <input type="button" value="5000" class="cashier__form-btn">
+                  </div>
+                </form>
+              </div>
+
+              <div class="cashier__card">
+                <div class="modal__inner-text">Выберите карту для оплаты:</div>
+                <div class="dropdown">
+                  <div class="dropdown__head">
+                    <div class="dropdown__button">
+                      <div class="dropdown__list-card dropdown__list-card--active">5469 .... .... 0030</div>
+                      <!-- <input class="receive__count" type="text" placeholder="5469 .... .... 0030"> -->
+                    </div>
+                  </div>
+                  <ul class="dropdown__list">
+                    <li class="dropdown__list-item" data-value="my">
+                      <div class="dropdown__list-card">5469 1234 5678 0030 (Сбер личная)</div>
+                      <!-- <input class="receive__count" type="text" placeholder="5469 1234 5678 0030 (Сбер личная)"> -->
+                    </li>
+                    <li class="dropdown__list-item" data-value="wife">
+                      <div class="dropdown__list-card">5469 0006 4545 1234 (Сбер жены)</div>
+                      <!-- <input class="receive__count" type="text" placeholder="5469 0006 4545 1234 (Сбер жены)"> -->
+                    </li>
+                    <li class="dropdown__list-item" data-value="salary">
+                      <div class="dropdown__list-card">5469 0346 7745 1882 (Зарплатная)</div>
+                      <!-- <input class="receive__count" type="text" placeholder="5469 0346 7745 1882 (Зарплатная)"> -->
+                    </li>
+                  </ul>
+                  <input type="text" value="" class="dropdown__input-hidden">
+                </div>
+              </div>
+
               <button class="modal__rewind-btn" data-path="new" data-animation="fade" data-speed="300" type="button">добавить карту</button>
+              <button class="cashier__btn modal__content-btn" data-path="request" data-animation="fade" data-speed="300" type="submit">Ок</button>
             </div>
-            <button class="modal__content-btn" data-path="request" data-animation="fade" data-speed="300" type="submit">Ок</button>
           </div>
 
           <div class="modal__tabs-content tabs__content" data-tabs-target="history">
@@ -471,32 +511,299 @@
               <button class="modal__tab modal__tab-add tabs__btn tabs__btn--active" data-tabs-path="add1">Пополнение</button>
             </li>
             <li class="tabs__item">
-              <button class="modal__tab modal__tab-cashier tabs__btn" data-tabs-path="cashier1">Вывод</button>
+              <button class="modal__tab modal__tab-cashier tabs__btn" data-tabs-path="cashier2">Вывод</button>
             </li>
             <li class="tabs__item">
-              <button class="modal__tab modal__tab-history tabs__btn" data-tabs-path="history1">История платежей</button>
+              <button class="modal__tab modal__tab-history tabs__btn" data-tabs-path="history2">История платежей</button>
             </li>
           </ul>
 
           <div class="modal__tabs-content tabs__content tabs__content--active" data-tabs-target="add1">
-            <div class="modal__content-inner">
-              <div class="modal__inner-middle">
-                <div class="modal__inner-title">Выберите тип пополнения:</div>
-                <button class="modal__inner-btn modal__btn-sber" data-path="sberbank" data-animation="fade" data-speed="300">перевод сбербанк-онлайн</button>
-                <button class="modal__inner-btn modal__btn-crypto">Криптовалюты (скоро)</button>
-                <button class="modal__inner-btn modal__btn-qiwi" data-path="qiwi-limits" data-animation="fade" data-speed="300">Терминалы QIWI</button>
+            <div class="sberbank cashier">
+              <div class="cashier__withraw">
+                <div class="modal__inner-text">Введите сумму пополнения:</div>
+                <form class="cashier__form">
+                  <input class="modal__inner-input" type="text" placeholder="Ввести">
+                  <div class="cashier__form-btns">
+                    <input type="button" value="500" class="cashier__form-btn">
+                    <input type="button" value="1000" class="cashier__form-btn">
+                    <input type="button" value="2000" class="cashier__form-btn">
+                    <input type="button" value="5000" class="cashier__form-btn">
+                  </div>
+                </form>
               </div>
+
+              <div class="sberbank__bonuses">
+                <div class="modal__inner-text">Выбор бонуса:</div>
+
+                <div class="sberbank__bonus">
+                  <div class="sberbank__bonus-checkbox">
+                    <input class="sberbank__checkbox-input" type="checkbox" id="bonus-1" name="bonus1">
+                    <label class="sberbank__checkbox-label" for="bonus-1">БОНУС 1</label>
+                    <div class="sberbank__bonus-info">
+                      <svg  width='20' height='20'>
+                      <use href='img/sprite/sprite.svg#info'></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="sberbank__bonus-checkbox">
+                    <input class="sberbank__checkbox-input" type="checkbox" id="bonus-2" name="bonus2">
+                    <label class="sberbank__checkbox-label" for="bonus-2">БОНУС 2</label>
+                    <div class="sberbank__bonus-info">
+                      <svg  width='20' height='20'>
+                      <use href='img/sprite/sprite.svg#info'></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="sberbank__bonus-checkbox">
+                    <input class="sberbank__checkbox-input" type="checkbox" id="bonus-3" name="bonus3">
+                    <label class="sberbank__checkbox-label" for="bonus-3">БОНУС 3</label>
+                    <div class="sberbank__bonus-info">
+                      <svg  width='20' height='20'>
+                      <use href='img/sprite/sprite.svg#info'></use>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="sberbank__bonus-checkbox">
+                    <input class="sberbank__checkbox-input" type="checkbox" id="bonus-no" name="bonusno">
+                    <label class="sberbank__checkbox-label" for="bonus-no">Без бонуса</label>
+                  </div>
+                </div>
+              </div>
+
+              <button class="sberbank__btn modal__content-btn" data-path="pay" data-animation="fade" data-speed="300" type="submit">Оплатить</button>
             </div>
+
           </div>
 
-          <div class="modal__tabs-content tabs__content" data-tabs-target="cashier1">
+          <div class="modal__tabs-content tabs__content" data-tabs-target="cashier">
             <div class="modal__content-inner">
               <button class="modal__rewind-btn">добавить карту</button>
             </div>
             <button class="modal__content-btn">войти</button>
           </div>
 
-          <div class="modal__tabs-content tabs__content" data-tabs-target="history1">
+          <div class="modal__tabs-content tabs__content" data-tabs-target="history">
+            <div class="modal__content-inner history">
+              <ul class="history__head">
+                <li class="history__head-row">ID/Дата:</li>
+                <li class="history__head-row">Сумма:</li>
+                <li class="history__head-row">Операция:</li>
+                <li class="history__head-row">Статус:</li>
+              </ul>
+
+              <div class="history__bottom">
+                <ul class="history__table">
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21240655</div>
+                        <div class="history__row-item--date">06.08.2021</div>
+                      </li>
+                      <li class="history__row-item">500₽</li>
+                      <li class="history__row-item">Пополнение</li>
+                      <li class="history__row-item">В обработке</li>
+                    </ul>
+                  </li>
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21240331</div>
+                        <div class="history__row-item--date">12.07.2021</div>
+                      </li>
+                      <li class="history__row-item">5000₽</li>
+                      <li class="history__row-item">Вывод</li>
+                      <li class="history__row-item">Успешно</li>
+                    </ul>
+                  </li>
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21233245</div>
+                        <div class="history__row-item--date">16.04.2021</div>
+                      </li>
+                      <li class="history__row-item">2000₽</li>
+                      <li class="history__row-item">Пополнение</li>
+                      <li class="history__row-item">Успешно</li>
+                    </ul>
+                  </li>
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21240123</div>
+                        <div class="history__row-item--date">26.06.2021</div>
+                      </li>
+                      <li class="history__row-item">2000₽</li>
+                      <li class="history__row-item">Пополнение</li>
+                      <li class="history__row-item">Успешно</li>
+                    </ul>
+                  </li>
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21231134</div>
+                        <div class="history__row-item--date">02.02.2021</div>
+                      </li>
+                      <li class="history__row-item">1000₽</li>
+                      <li class="history__row-item">Вывод</li>
+                      <li class="history__row-item">Успешно</li>
+                    </ul>
+                  </li>
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21231122</div>
+                        <div class="history__row-item--date">01.02.2021</div>
+                      </li>
+                      <li class="history__row-item">1000₽</li>
+                      <li class="history__row-item">Пополнение</li>
+                      <li class="history__row-item">Успешно</li>
+                    </ul>
+                  </li>
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21231110</div>
+                        <div class="history__row-item--date">01.02.2021</div>
+                      </li>
+                      <li class="history__row-item">200₽</li>
+                      <li class="history__row-item">Пополнение</li>
+                      <li class="history__row-item">Успешно</li>
+                    </ul>
+                  </li>
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21231134</div>
+                        <div class="history__row-item--date">02.02.2021</div>
+                      </li>
+                      <li class="history__row-item">1000₽</li>
+                      <li class="history__row-item">Вывод</li>
+                      <li class="history__row-item">Успешно</li>
+                    </ul>
+                  </li>
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21231122</div>
+                        <div class="history__row-item--date">01.02.2021</div>
+                      </li>
+                      <li class="history__row-item">1000₽</li>
+                      <li class="history__row-item">Пополнение</li>
+                      <li class="history__row-item">Успешно</li>
+                    </ul>
+                  </li>
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21231110</div>
+                        <div class="history__row-item--date">01.02.2021</div>
+                      </li>
+                      <li class="history__row-item">200₽</li>
+                      <li class="history__row-item">Пополнение</li>
+                      <li class="history__row-item">Успешно</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+			</div>
+		</div>
+
+    <div class="modal__container" data-target="pay">
+			<div class="modal__cashbox modal-content ">
+        <button class="modal__close modal-close">&times;</button>
+        <div class="modal__title">Касса</div>
+        <div class="modal__tabs tabs">
+          <ul class="modal__tabs-list tabs__list">
+            <li class="tabs__item">
+              <button class="modal__tab modal__tab-add tabs__btn tabs__btn--active" data-tabs-path="add">Пополнение</button>
+            </li>
+            <li class="tabs__item">
+              <button class="modal__tab modal__tab-cashier tabs__btn" data-tabs-path="cashier">Вывод</button>
+            </li>
+            <li class="tabs__item">
+              <button class="modal__tab modal__tab-history tabs__btn" data-tabs-path="history">История платежей</button>
+            </li>
+          </ul>
+
+          <div class="modal__tabs-content tabs__content tabs__content--active" data-tabs-target="add">
+            <div class="pay">
+              <div class="pay__head">
+                <div class="cashier__card">
+                  <div class="modal__inner-text">Выберите карту для оплаты:</div>
+                  <div class="dropdown">
+                    <div class="dropdown__head">
+                      <div class="dropdown__button">
+                        <div class="dropdown__list-card dropdown__list-card--active">5469 .... .... 0030</div>
+                      </div>
+                    </div>
+                    <ul class="dropdown__list">
+                      <li class="dropdown__list-item" data-value="my">
+                        <div class="dropdown__list-card">5469 1234 5678 0030 (Сбер личная)</div>
+                      </li>
+                      <li class="dropdown__list-item" data-value="wife">
+                        <div class="dropdown__list-card">5469 0006 4545 1234 (Сбер жены)</div>
+                      </li>
+                      <li class="dropdown__list-item" data-value="salary">
+                        <div class="dropdown__list-card">5469 0346 7745 1882 (Зарплатная)</div>
+                      </li>
+                    </ul>
+                    <input type="text" value="" class="dropdown__input-hidden">
+                  </div>
+                </div>
+                <button class="modal__rewind-btn" data-path="new" data-animation="fade" data-speed="300" type="button">добавить карту</button>
+              </div>
+              <button class="pay__btn modal__content-btn" data-path="confirm" data-animation="fade" data-speed="300" type="submit">Ок</button>
+            </div>
+          </div>
+
+          <div class="modal__tabs-content tabs__content" data-tabs-target="cashier">
+            <div class="cashier">
+              <div class="cashier__withraw">
+                <div class="modal__inner-text">Введите сумму вывода:</div>
+                <form class="cashier__form">
+                  <input class="modal__inner-input" type="text" placeholder="Ввести">
+                  <div class="cashier__form-btns">
+                    <input type="button" value="500" class="cashier__form-btn">
+                    <input type="button" value="1000" class="cashier__form-btn">
+                    <input type="button" value="2000" class="cashier__form-btn">
+                    <input type="button" value="5000" class="cashier__form-btn">
+                  </div>
+                </form>
+              </div>
+
+              <div class="cashier__card">
+                <div class="modal__inner-text">Выберите карту для оплаты:</div>
+                <div class="dropdown">
+                  <div class="dropdown__head">
+                    <div class="dropdown__button">
+                      <div class="dropdown__list-card dropdown__list-card--active">5469 .... .... 0030</div>
+                    </div>
+                  </div>
+                  <ul class="dropdown__list">
+                    <li class="dropdown__list-item" data-value="my">
+                      <div class="dropdown__list-card">5469 1234 5678 0030 (Сбер личная)</div>
+                    </li>
+                    <li class="dropdown__list-item" data-value="wife">
+                      <div class="dropdown__list-card">5469 0006 4545 1234 (Сбер жены)</div>
+                    </li>
+                    <li class="dropdown__list-item" data-value="salary">
+                      <div class="dropdown__list-card">5469 0346 7745 1882 (Зарплатная)</div>
+                    </li>
+                  </ul>
+                  <input type="text" value="" class="dropdown__input-hidden">
+                </div>
+              </div>
+
+              <button class="modal__rewind-btn" data-path="new" data-animation="fade" data-speed="300" type="button">добавить карту</button>
+              <button class="cashier__btn modal__content-btn" data-path="request" data-animation="fade" data-speed="300" type="submit">Ок</button>
+            </div>
+          </div>
+
+          <div class="modal__tabs-content tabs__content" data-tabs-target="history">
             <div class="modal__content-inner history">
               <ul class="history__head">
                 <li class="history__head-row">ID/Дата:</li>
@@ -665,8 +972,29 @@
         <button class="modal__new-btn modal__tab" type="submit">Ок</button>
 			</div>
 		</div>
+
+    <div class="modal__container" data-target="confirm">
+			<div class="modal__request modal-content ">
+        <button class="modal__close modal-close">&times;</button>
+        <div class="modal__reg-text">Заявка сформирована!<br>
+          Сделайте перевод 500₽ на карту:<br>
+          <span>1234 5678 9944 0202</span></div>
+        <div class="modal__reg-text">Средства поступят на ваш счёт в течение нескольких минут после перевода.</div>
+        <div class="confirm__btns">
+          <button class="modal__new-btn modal__tab" type="submit">Ок</button>
+          <button class="modal__new-btn modal__tab" type="submit">
+            <svg  width='24px' height='24px'>
+            <use href='img/sprite/sprite.svg#sber'></use>
+            </svg>
+            Открыть сбер
+          </button>
+        </div>
+			</div>
+		</div>
 	</div>
 
+  <script src="js/inputmask.min.js"></script>
+  <script src="js/just-validate.min.js"></script>
   <script src="js/swiper.min.js"></script>
   <script src="js/common.min.js"></script>
 </body>

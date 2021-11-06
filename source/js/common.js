@@ -53,7 +53,6 @@ class Modal {
       if (this.modal) {
           document.addEventListener('click', function (e) {
               const clickedElement = e.target.closest('[data-path]');
-              console.log('text');
               if (clickedElement) {
                   if (this.isOpen) {
                     this.close();
@@ -64,7 +63,6 @@ class Modal {
                   this.animation = animation ? animation : 'fade';
                   this.speed = speed ? parseInt(speed) : 300;
                   this.modalContainer = document.querySelector(`[data-target="${target}"]`);
-                  console.log('test1');
                   this.open();
                   return;
               }
@@ -191,7 +189,6 @@ const modal = new Modal({
   },
 });
 
-
 // tabs
 document.addEventListener('DOMContentLoaded', () => {
 	const tabs = document.querySelector('.tabs');
@@ -202,7 +199,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		tabs.addEventListener('click', (e) => {
 			if (e.target.classList.contains('tabs__btn')) {
 				const tabsPath = e.target.dataset.tabsPath;
-				tabsBtn.forEach(el => {el.classList.remove('tabs__btn--active')});
+				tabsBtn.forEach(el => {
+          el.classList.remove('tabs__btn--active');
+        });
 				document.querySelector(`[data-tabs-path="${tabsPath}"]`).classList.add('tabs__btn--active');
 				tabsHandler(tabsPath);
 			}
@@ -210,7 +209,209 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	const tabsHandler = (path) => {
-		tabsContent.forEach(el => {el.classList.remove('tabs__content--active')});
+		tabsContent.forEach(el => {
+      el.classList.remove('tabs__content--active');
+    });
 		document.querySelector(`[data-tabs-target="${path}"]`).classList.add('tabs__content--active');
 	};
 });
+
+// class Tabs {
+//   constructor(root) {
+//       this.root = root;
+//       this.list = this.root.querySelector(':scope > [data-list]');
+//       this.buttons = new Map([...this.list.querySelectorAll(':scope > [data-target]')]
+//           .map(entry => [
+//               entry.dataset.target,
+//               entry,
+//           ])
+//       );
+//       this.containers = new Map([...this.root.querySelectorAll(':scope > [data-tab]')]
+//           .map(entry => [entry.dataset.tab, entry])
+//       );
+//       this.salt = Math.random().toString(36).slice(2);
+//       this.current = null;
+//       this.active = null;
+//   }
+
+//   select(name) {
+//       const keys = [...this.buttons.keys()];
+
+//       for (let [key, button] of this.buttons.entries()) {
+//           button.setAttribute('aria-selected', key === name);
+//       }
+
+//       for (let [key, container] of this.containers.entries()) {
+//           if (key === name) {
+//               container.removeAttribute('hidden');
+//           } else {
+//               container.setAttribute('hidden', true);
+//           }
+//       }
+
+//       this.active = keys.indexOf(name);
+//   }
+
+//   init() {
+//       const keys = [...this.buttons.keys()];
+
+//       this.list.setAttribute('role', 'tablist');
+
+//       this.list.addEventListener('keydown', event => {
+//           if (event.code === 'Home') {
+//               event.preventDefault();
+
+//               this.buttons.get(keys[0]).focus();
+//           }
+
+//           if (event.code === 'End') {
+//               event.preventDefault();
+
+//               this.buttons.get(keys[keys.length - 1]).focus();
+//           }
+
+//           if (event.code === 'ArrowLeft') {
+//               event.preventDefault();
+
+//               this.buttons.get(keys[Math.max(0, this.current - 1)]).focus();
+//           }
+
+//           if (event.code === 'ArrowRight') {
+//               event.preventDefault();
+
+//               this.buttons.get(keys[Math.min(keys.length - 1, this.current + 1)]).focus();
+//           }
+//       });
+
+//       for (let [key, button] of this.buttons.entries()) {
+//           button.setAttribute('tabindex', '0');
+//           button.setAttribute('id', `button_${this.salt}_=${key}`);
+//           button.setAttribute('role', 'tab');
+//           button.setAttribute('aria-controls', `container_${this.salt}_${key}`);
+
+//           button.addEventListener('click', event => {
+//               event.preventDefault();
+
+//               this.select(key);
+//           });
+
+//           button.addEventListener('focus', event => {
+//               this.current = keys.indexOf(key);
+//           });
+
+//           button.addEventListener('keypress', event => {
+//               if (event.code === 'Enter' || event.code === 'Space') {
+//                   event.preventDefault();
+
+//                   this.select(key);
+//               }
+//           });
+//       }
+
+//       for (let [key, container] of this.containers.entries()) {
+//           container.setAttribute('id', `container_${this.salt}_${key}`);
+//           container.setAttribute('role', 'tabpanel');
+//           container.setAttribute('aria-labelledby', `button_${this.salt}_${key}`);
+//       }
+
+//       this.select(keys[0]);
+//   }
+
+//   static create(element) {
+//       const instance = new Tabs(element);
+//       instance.init();
+
+//       return instance;
+//   }
+// }
+
+// const containers = document.querySelectorAll('[data-tabs]');
+
+// for (let container of containers) {
+//   const tabs = Tabs.create(container);
+//   console.log(tabs);
+// }
+
+// dropdown
+document.querySelectorAll('.dropdown').forEach(function (dropDownWrapper) {
+	const dropDownBtn = dropDownWrapper.querySelector('.dropdown__button');
+	const dropDownList = dropDownWrapper.querySelector('.dropdown__list');
+	const dropDownListItems = dropDownList.querySelectorAll('.dropdown__list-item');
+	const dropDownInput = dropDownWrapper.querySelector('.dropdown__input-hidden');
+
+		dropDownBtn.addEventListener('click', function (e) {
+    console.log("click :>> ", "dropDownBtn");
+		dropDownList.classList.toggle('dropdown__list--visible');
+        this.classList.add('dropdown__button--active');
+	});
+
+	dropDownListItems.forEach(function (listItem) {
+		listItem.addEventListener('click', function (e) {
+      console.log("click :>> ", "dropDownListItem");
+			e.stopPropagation();
+			dropDownBtn.innerHTML = this.innerHTML;
+			dropDownBtn.focus();
+			dropDownInput.value = this.dataset.value;
+			dropDownList.classList.remove('dropdown__list--visible');
+      this.classList.remove('dropdown__button--active');
+		});
+	});
+
+	document.addEventListener('click', function (e) {
+    console.log("click :>> ", dropDownBtn.contains(e.target));
+		if (!dropDownBtn.contains(e.target)) {
+			dropDownBtn.classList.remove('dropdown__button--active');
+			dropDownList.classList.remove('dropdown__list--visible');
+		}
+	});
+
+	document.addEventListener('keydown', function (e) {
+		if (e.key === 'Tab' || e.key === 'Escape') {
+			dropDownBtn.classList.remove('dropdown__button--active');
+			dropDownList.classList.remove('dropdown__list--visible');
+		}
+	});
+});
+
+// calculator
+let calculatorElem = document.querySelector('.cashier__form, .sberbank__form'),
+    input = calculatorElem.querySelector('.modal__inner-input, .sberbank__form-input');
+
+calculatorElem.addEventListener('click', evt => {
+  if (evt.target.matches('.cashier__form-btn, .sberbank__form-btn')) {
+    input.value = evt.target.value;
+  } else if (evt.target.matches('.action')) {
+    // ...
+  }
+});
+
+// inputMask
+let inputs = document.querySelectorAll('input[type="tel"]');
+let im = new Inputmask('+7 (999) 999-99-99');
+im.mask(inputs);
+
+// validate
+// function validateForms(selector, rules) {
+//   new window.JustValidate(selector, {
+//       rules: rules,
+//       submitHandler: function (form, values, ajax) {
+//           console.log(form);
+
+//           let formData = new FormData(form);
+
+//           fetch("mail.php", {
+//               method: "POST",
+//               body: formData
+//           })
+//           .then(function(data) {
+//               console.log(data);
+//               console.log('Отправлено');
+//               form.reset();
+//           });
+//       }
+//   });
+// }
+
+// validateForms('.form', { email: { required: true, email: true }, fio: { required: true }, tel: { required: true } });
+
+

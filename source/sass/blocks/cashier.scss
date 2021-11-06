@@ -1,0 +1,28 @@
+.cashier {
+  margin: 47px 0 44px;
+}
+
+.cashier__btn {
+  margin-top: 140px;
+}
+
+.cashier__card {
+  margin-top: 39px;
+}
+
+.cashier__form-btns {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cashier__form-btn {
+  height: 48px;
+  width: 160px;
+  border: 2px solid #FFFFFF;
+  border-radius: 8px;
+  font-weight: 700;
+  color: #FFFFFF;
+  cursor: pointer;
+}

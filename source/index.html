@@ -240,7 +240,9 @@
             <div class="modal__content-inner">
               <div class="modal__inner-top">
                 <div class="modal__inner-text">Введите номер телефона:</div>
-                <input class="modal__inner-input" type="tel" placeholder="+X (XXX) XXX-XX-XX">
+                <form class="modal__form">
+                  <input class="modal__inner-input" type="tel" placeholder="+X (XXX) XXX-XX-XX" data-validate-field="tel" inputmode="text">
+                </form>
               </div>
             </div>
             <button class="modal__content-btn" data-path="sms" data-animation="fade" data-speed="300">получить код</button>
@@ -250,11 +252,15 @@
             <div class="modal__content-inner">
               <div class="modal__inner-top">
                 <div class="modal__inner-text">Введите номер телефона:</div>
-                <input class="modal__inner-input" type="tel" placeholder="+X (XXX) XXX-XX-XX">
+                <form class="modal__form">
+                  <input class="modal__inner-input" type="tel" placeholder="+X (XXX) XXX-XX-XX" data-validate-field="tel" inputmode="text">
+                </form>
               </div>
               <div class="modal__inner-bottom">
                 <div class="modal__inner-text">Введите пароль:</div>
-                <input class="modal__inner-input" type="text" placeholder="****">
+                <form class="modal__form">
+                  <input class="modal__inner-input" type="text" placeholder="****" data-validate-field="pas">
+                </form>
               </div>
             </div>
             <button class="modal__content-btn">войти</button>
@@ -282,7 +288,9 @@
             <div class="modal__content-inner">
               <div class="modal__inner-top">
                 <div class="modal__inner-text">Введите код из смс:</div>
-                <input class="modal__inner-input" type="text" placeholder="XX-XX-XX-XX">
+                <form class="modal__form">
+                  <input class="modal__inner-input" type="text" placeholder="XX-XX-XX-XX" data-validate-field="pas">
+                </form>
               </div>
             </div>
             <button class="modal__content-btn" data-path="reset" data-animation="fade" data-speed="300" >войти</button>
@@ -292,15 +300,19 @@
             <div class="modal__content-inner">
               <div class="modal__inner-top">
                 <div class="modal__inner-text">Введите номер телефона:</div>
-                <input class="modal__inner-input" type="tel" placeholder="+X (XXX) XXX-XX-XX">
+                <form class="modal__form">
+                  <input class="modal__inner-input" type="tel" placeholder="+X (XXX) XXX-XX-XX" data-validate-field="tel">
+                </form>
               </div>
               <div class="modal__inner-bottom">
                 <div class="modal__inner-text">Введите пароль:</div>
-                <input class="modal__inner-input" type="text" placeholder="****">
+                <form class="modal__form">
+                  <input class="modal__inner-input" type="text" placeholder="****" data-validate-field="pas">
+                </form>
               </div>
             </div>
-            <button class="modal__content-btn">войти</button>
-            <button class="modal__rewind-btn">Напомнить пароль</button>
+            <button class="modal__content-btn" type="submit">войти</button>
+            <button class="modal__rewind-btn" type="submit">Напомнить пароль</button>
           </div>
         </div>
 			</div>
@@ -313,40 +325,48 @@
         <div class="modal__tabs tabs">
           <ul class="modal__tabs-list tabs__list">
             <li class="tabs__item">
-              <button class="modal__tab modal__tab-phone tabs__btn tabs__btn--active" data-tabs-path="phone3">по телефону</button>
+              <button class="modal__tab modal__tab-phone tabs__btn tabs__btn--active" data-tabs-path="phone2">по телефону</button>
             </li>
             <li class="tabs__item">
-              <button class="modal__tab modal__tab-password tabs__btn" data-tabs-path="password3">с паролем</button>
+              <button class="modal__tab modal__tab-password tabs__btn" data-tabs-path="password2">с паролем</button>
             </li>
           </ul>
 
-          <div class="modal__tabs-content tabs__content tabs__content--active" data-tabs-target="phone3">
+          <div class="modal__tabs-content tabs__content tabs__content--active" data-tabs-target="phone2">
             <div class="modal__content-inner">
               <div class="modal__inner-top">
                 <div class="modal__inner-text">Придумайте пароль:</div>
-                <input class="modal__inner-input" type="text" placeholder="****">
+                <form class="modal__form">
+                  <input class="modal__inner-input" type="text" placeholder="****" data-validate-field="pas">
+                </form>
               </div>
               <div class="modal__inner-bottom">
                 <div class="modal__inner-text">Повторите пароль:</div>
-                <input class="modal__inner-input" type="text" placeholder="****">
+                <form class="modal__form">
+                  <input class="modal__inner-input" type="text" placeholder="****" data-validate-field="pas">
+                </form>
               </div>
             </div>
-            <button class="modal__content-btn">Войти</button>
+            <button class="modal__content-btn" type="submit">Войти</button>
           </div>
 
-          <div class="modal__tabs-content tabs__content" data-tabs-target="password3">
+          <div class="modal__tabs-content tabs__content" data-tabs-target="password2">
             <div class="modal__content-inner">
               <div class="modal__inner-top">
                 <div class="modal__inner-text">Введите номер телефона:</div>
-                <input class="modal__inner-input" type="tel" placeholder="+X (XXX) XXX-XX-XX">
+                <form class="modal__form">
+                  <input class="modal__inner-input" type="tel" placeholder="+X (XXX) XXX-XX-XX" data-validate-field="tel">
+                </form>
               </div>
               <div class="modal__inner-bottom">
                 <div class="modal__inner-text">Введите пароль:</div>
-                <input class="modal__inner-input" type="text" placeholder="****">
+                <form class="modal__form">
+                  <input class="modal__inner-input" type="text" placeholder="****" data-validate-field="pas">
+                </form>
               </div>
             </div>
-            <button class="modal__content-btn">Войти</button>
-            <button class="modal__rewind-btn">Напомнить пароль</button>
+            <button class="modal__content-btn" type="submit">Войти</button>
+            <button class="modal__rewind-btn" type="submit">Напомнить пароль</button>
           </div>
         </div>
 			</div>
@@ -359,6 +379,8 @@
 		</div>
 	</div>
 
+  <script src="js/inputmask.min.js"></script>
+  <script src="js/just-validate.min.js"></script>
   <script src="js/swiper.min.js"></script>
   <script src="js/common.min.js"></script>
 </body>

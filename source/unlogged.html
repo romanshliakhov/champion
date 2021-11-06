@@ -214,39 +214,27 @@
   </footer>
 
   <div class="modal">
-		<div class="modal__container" data-target="registration">
-			<div class="modal__reg modal-content ">
-        <button class="modal__close modal-close">&times;</button>
-        <div class="modal__reg-text">Для регистрации в системе,
-          пожалуйста, обратитесь в <a class="modal__reg-link" href="#">техподдержку</a></div>
-			</div>
-		</div>
-
     <div class="modal__container" data-target="enter">
 			<div class="modal__enter modal-content ">
         <button class="modal__close modal-close">&times;</button>
         <div class="modal__title">Вход</div>
-        <div class="modal__tabs tabs">
-          <ul class="modal__tabs-list tabs__list">
-            <li class="tabs__item">
-              <button class="modal__tab modal__tab-phone tabs__btn tabs__btn--active" data-tabs-path="phone">по телефону</button>
-            </li>
-            <li class="tabs__item">
-              <button class="modal__tab modal__tab-password tabs__btn" data-tabs-path="password">с паролем</button>
-            </li>
-          </ul>
+        <div class="modal__tabs tabs" data-tabs>
+          <div class="modal__tabs-list tabs__list" data-list>
+            <button class="modal__tab modal__tab-phone tabs__button" data-target="tab1">по телефону</button>
+            <button class="modal__tab modal__tab-password tabs__button" data-target="tab2">с паролем</button>
+          </div>
 
-          <div class="modal__tabs-content tabs__content tabs__content--active" data-tabs-target="phone">
+          <div class="modal__tabs-content tabs__container" data-tab="tab1">
             <div class="modal__content-inner">
               <div class="modal__inner-top">
                 <div class="modal__inner-text">Введите номер телефона:</div>
                 <input class="modal__inner-input" type="tel" placeholder="+X (XXX) XXX-XX-XX">
               </div>
             </div>
-            <button class="modal__content-btn">получить код</button>
+            <button class="modal__content-btn" data-path="sms" data-animation="fade" data-speed="300">получить код</button>
           </div>
 
-          <div class="modal__tabs-content tabs__content" data-tabs-target="password">
+          <div class="modal__tabs-content tabs__container" data-tab="tab2">
             <div class="modal__content-inner">
               <div class="modal__inner-top">
                 <div class="modal__inner-text">Введите номер телефона:</div>
@@ -264,6 +252,94 @@
 			</div>
 		</div>
 
+    <div class="modal__container" data-target="sms">
+			<div class="modal__enter modal-content ">
+        <button class="modal__close modal-close">&times;</button>
+        <div class="modal__title">Вход</div>
+        <div class="modal__tabs tabs" data-tabs>
+          <div class="modal__tabs-list tabs__list" data-list>
+            <button class="modal__tab modal__tab-phone tabs__button" data-target="tabs1">по телефону</button>
+            <button class="modal__tab modal__tab-password tabs__button" data-target="tabs2">с паролем</button>
+          </div>
+
+          <div class="modal__tabs-content tabs__container" data-tab="tabs1">
+            <div class="modal__content-inner">
+              <div class="modal__inner-top">
+                <div class="modal__inner-text">Введите код из смс:</div>
+                <input class="modal__inner-input" type="text" placeholder="XX-XX-XX-XX">
+              </div>
+            </div>
+            <button class="modal__content-btn" data-path="reset" data-animation="fade" data-speed="300" >войти</button>
+          </div>
+
+          <div class="modal__tabs-content tabs__content" data-tab="tabs2">
+            <div class="modal__content-inner">
+              <div class="modal__inner-top">
+                <div class="modal__inner-text">Введите номер телефона:</div>
+                <input class="modal__inner-input" type="tel" placeholder="+X (XXX) XXX-XX-XX">
+              </div>
+              <div class="modal__inner-bottom">
+                <div class="modal__inner-text">Введите пароль:</div>
+                <input class="modal__inner-input" type="text" placeholder="****">
+              </div>
+            </div>
+            <button class="modal__content-btn">войти</button>
+            <button class="modal__rewind-btn">Напомнить пароль</button>
+          </div>
+        </div>
+			</div>
+		</div>
+
+    <div class="modal__container" data-target="reset">
+			<div class="modal__enter modal-content ">
+        <button class="modal__close modal-close">&times;</button>
+        <div class="modal__title">Вход</div>
+        <div class="modal__tabs tabs" data-tabs>
+          <div class="modal__tabs-list tabs__list" data-list>
+            <button class="modal__tab modal__tab-phone tabs__button" data-target="tabb1">по телефону</button>
+            <button class="modal__tab modal__tab-password tabs__button" data-target="tabb2">с паролем</button>
+          </div>
+
+          <div class="modal__tabs-content tabs__container" data-tab="tabb1">
+            <div class="modal__content-inner">
+              <div class="modal__inner-top">
+                <div class="modal__inner-text">Придумайте пароль:</div>
+                <input class="modal__inner-input" type="text" placeholder="****">
+              </div>
+              <div class="modal__inner-bottom">
+                <div class="modal__inner-text">Повторите пароль:</div>
+                <input class="modal__inner-input" type="text" placeholder="****">
+              </div>
+            </div>
+            <button class="modal__content-btn">Войти</button>
+          </div>
+
+          <div class="modal__tabs-content tabs__container" data-tab="tabb2">
+            <div class="modal__content-inner">
+              <div class="modal__inner-top">
+                <div class="modal__inner-text">Введите номер телефона:</div>
+                <input class="modal__inner-input" type="tel" placeholder="+X (XXX) XXX-XX-XX">
+              </div>
+              <div class="modal__inner-bottom">
+                <div class="modal__inner-text">Введите пароль:</div>
+                <input class="modal__inner-input" type="text" placeholder="****">
+              </div>
+            </div>
+            <button class="modal__content-btn">Войти</button>
+            <button class="modal__rewind-btn">Напомнить пароль</button>
+          </div>
+        </div>
+			</div>
+		</div>
+
+    <div class="modal__container" data-target="registration">
+			<div class="modal__reg modal-content ">
+        <button class="modal__close modal-close">&times;</button>
+        <div class="modal__reg-text">Для регистрации в системе,
+          пожалуйста, обратитесь в <a class="modal__reg-link" href="#">техподдержку</a></div>
+			</div>
+		</div>
+
 		<div class="modal__container" data-target="limits">
 			<div class="modal-content">
 				<div class="popup__text">Чтобы играть без ограничений, пожалуйста, выполните вход</div>
@@ -271,6 +347,8 @@
 		</div>
 	</div>
 
+  <script src="js/just-validate.min.js"></script>
+  <script src="js/inputmask.min.js"></script>
   <script src="js/swiper.min.js"></script>
   <script src="js/common.min.js"></script>
 </body>
