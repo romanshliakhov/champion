@@ -2,25 +2,24 @@
 	position: relative;
 }
 
-.tabs__btn:hover {
+.tablinks:hover {
   background: linear-gradient(180deg, rgba(108, 255, 229, 0.5) 0%, rgba(45, 25, 61, 0.229167) 69.27%, rgba(0, 0, 0, 0) 100%), #751C9E;
   background-blend-mode: luminosity, normal;
   box-shadow: 0px 0px 20px rgba(198, 106, 254, 0.25);
   border-radius: 8px;
 }
 
-.tabs__btn--active {
+.tablinks.active {
 	pointer-events: none;
   background: linear-gradient(180deg, rgba(108, 255, 229, 0.5) 0%, rgba(45, 25, 61, 0.229167) 69.27%, rgba(0, 0, 0, 0) 100%), #751C9E;
   opacity: 0.75;
   box-shadow: inset 0px 0px 20px #000000;
 }
 
-.tabs__content {
+.tabcontent {
   display: none;
-  min-width: 0;
-}
 
-.tabs__content--active {
-  display: block;
+  &.active {
+    display: block;
+  }
 }

@@ -21,15 +21,29 @@
     </div>
   </div>
 
-  <main class="main">
+  <main class="main main__logedin">
     <div class="main__head">
       <div class="container">
-        <section class="enter enter__center">
-          <div class="enter__login enter__btn">
-            <button class="enter__login-btn" data-path="enter" data-animation="fade" data-speed="300">Вход</button>
+        <section class="enter">
+          <div class="enter__cashbox enter__btn">
+            <button class="enter__cashbox-btn" data-path="cashbox" data-animation="fade" data-speed="300">Касса</button>
           </div>
-          <div class="enter__reg enter__btn">
-            <button class="enter__reg-btn" data-path="registration" data-animation="fade" data-speed="300">Регистрация</button>
+          <div class="enter__info">
+            <div class="enter__info-item">
+              <p class="enter__info-text">Игровой счёт:</p>
+              <button class="enter__info-decoration enter__info-decoration--current" data-path="sberbank" data-animation="fade" data-speed="300">3000₽</button>
+            </div>
+            <div class="enter__info-item">
+              <p class="enter__info-text">Бонусный счёт: </p>
+              <span class="enter__info-decoration">1000₽</span>
+            </div>
+            <div class="enter__info-item">
+              <p class="enter__info-text">Отыгрыш: </p>
+              <span class="enter__info-decoration">33%</span>
+            </div>
+          </div>
+          <div class="enter__profile enter__btn">
+            <button class="enter__profile-btn" data-path="profile" data-animation="fade" data-speed="300">Профиль</button>
           </div>
         </section>
 
@@ -214,141 +228,341 @@
   </footer>
 
   <div class="modal">
-    <div class="modal__container" data-target="enter">
-			<div class="modal__enter modal-content ">
+    <div class="modal__container" data-target="cashbox">
+			<div class="modal__cashbox modal-content ">
         <button class="modal__close modal-close">&times;</button>
-        <div class="modal__title">Вход</div>
-        <div class="modal__tabs tabs" data-tabs>
-          <div class="modal__tabs-list tabs__list" data-list>
-            <button class="modal__tab modal__tab-phone tabs__button" data-target="tab1">по телефону</button>
-            <button class="modal__tab modal__tab-password tabs__button" data-target="tab2">с паролем</button>
-          </div>
+        <div class="modal__title">Касса</div>
+        <div class="modal__tabs tabs">
+          <ul class="modal__tabs-list tabs__list">
+            <li class="tabs__item">
+              <button class="modal__tab modal__tab-add tablinks active" onclick="itemTabs(event, 'add')">Пополнение</button>
+            </li>
+            <li class="tabs__item">
+              <button class="modal__tab modal__tab-cashier tablinks" onclick="itemTabs(event, 'cashier')">Вывод</button>
+            </li>
+            <li class="tabs__item">
+              <button class="modal__tab modal__tab-history tablinks" onclick="itemTabs(event, 'history')">История платежей</button>
+            </li>
+          </ul>
 
-          <div class="modal__tabs-content tabs__container" data-tab="tab1">
+          <div class="modal__tabs-content tabcontent active" id="add">
             <div class="modal__content-inner">
-              <div class="modal__inner-top">
-                <div class="modal__inner-text">Введите номер телефона:</div>
-                <input class="modal__inner-input" type="tel" placeholder="+X (XXX) XXX-XX-XX">
+              <div class="modal__inner-middle">
+                <div class="modal__inner-title">Выберите тип пополнения:</div>
+                <button class="modal__inner-btn modal__btn-sber" data-path="sberbank" data-animation="fade" data-speed="300">перевод сбербанк-онлайн</button>
+                <button class="modal__inner-btn modal__btn-crypto">Криптовалюты (скоро)</button>
+                <button class="modal__inner-btn modal__btn-qiwi" data-path="qiwi-limits" data-animation="fade" data-speed="300">Терминалы QIWI</button>
               </div>
             </div>
-            <button class="modal__content-btn" data-path="sms" data-animation="fade" data-speed="300">получить код</button>
           </div>
 
-          <div class="modal__tabs-content tabs__container" data-tab="tab2">
-            <div class="modal__content-inner">
-              <div class="modal__inner-top">
-                <div class="modal__inner-text">Введите номер телефона:</div>
-                <input class="modal__inner-input" type="tel" placeholder="+X (XXX) XXX-XX-XX">
+          <div class="modal__tabs-content tabcontent" id="cashier">
+            <div class="cashier">
+              <div class="cashier__withraw">
+                <div class="modal__inner-text">Введите сумму вывода:</div>
+                <form class="cashier__form">
+                  <input class="modal__inner-input" type="text" placeholder="Ввести">
+                  <div class="cashier__form-btns">
+                    <input type="button" value="500" class="cashier__form-btn">
+                    <input type="button" value="1000" class="cashier__form-btn">
+                    <input type="button" value="2000" class="cashier__form-btn">
+                    <input type="button" value="5000" class="cashier__form-btn">
+                  </div>
+                </form>
               </div>
-              <div class="modal__inner-bottom">
-                <div class="modal__inner-text">Введите пароль:</div>
-                <input class="modal__inner-input" type="text" placeholder="****">
+
+              <div class="cashier__card">
+                <div class="modal__inner-text">Выберите карту для оплаты:</div>
+                <div class="dropdown">
+                  <div class="dropdown__head">
+                    <div class="dropdown__button">
+                      <div class="dropdown__list-card dropdown__list-card--active">5469 .... .... 0030</div>
+                    </div>
+                  </div>
+                  <ul class="dropdown__list">
+                    <li class="dropdown__list-item" data-value="my">
+                      <div class="dropdown__list-card">5469 1234 5678 0030 (Сбер личная)</div>
+                    </li>
+                    <li class="dropdown__list-item" data-value="wife">
+                      <div class="dropdown__list-card">5469 0006 4545 1234 (Сбер жены)</div>
+                    </li>
+                    <li class="dropdown__list-item" data-value="salary">
+                      <div class="dropdown__list-card">5469 0346 7745 1882 (Зарплатная)</div>
+                    </li>
+                  </ul>
+                  <input type="text" value="" class="dropdown__input-hidden">
+                </div>
+              </div>
+
+              <button class="modal__rewind-btn" data-path="new" data-animation="fade" data-speed="300" type="button">добавить карту</button>
+              <button class="cashier__btn modal__content-btn" data-path="request" data-animation="fade" data-speed="300" type="submit">Ок</button>
+            </div>
+          </div>
+
+          <div class="modal__tabs-content tabcontent" id="history">
+            <div class="modal__content-inner history">
+              <ul class="history__head">
+                <li class="history__head-row">ID/Дата:</li>
+                <li class="history__head-row">Сумма:</li>
+                <li class="history__head-row">Операция:</li>
+                <li class="history__head-row">Статус:</li>
+              </ul>
+
+              <div class="history__bottom">
+                <ul class="history__table">
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21240655</div>
+                        <div class="history__row-item--date">06.08.2021</div>
+                      </li>
+                      <li class="history__row-item">500₽</li>
+                      <li class="history__row-item">Пополнение</li>
+                      <li class="history__row-item">В обработке</li>
+                    </ul>
+                  </li>
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21240331</div>
+                        <div class="history__row-item--date">12.07.2021</div>
+                      </li>
+                      <li class="history__row-item">5000₽</li>
+                      <li class="history__row-item">Вывод</li>
+                      <li class="history__row-item">Успешно</li>
+                    </ul>
+                  </li>
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21233245</div>
+                        <div class="history__row-item--date">16.04.2021</div>
+                      </li>
+                      <li class="history__row-item">2000₽</li>
+                      <li class="history__row-item">Пополнение</li>
+                      <li class="history__row-item">Успешно</li>
+                    </ul>
+                  </li>
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21240123</div>
+                        <div class="history__row-item--date">26.06.2021</div>
+                      </li>
+                      <li class="history__row-item">2000₽</li>
+                      <li class="history__row-item">Пополнение</li>
+                      <li class="history__row-item">Успешно</li>
+                    </ul>
+                  </li>
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21231134</div>
+                        <div class="history__row-item--date">02.02.2021</div>
+                      </li>
+                      <li class="history__row-item">1000₽</li>
+                      <li class="history__row-item">Вывод</li>
+                      <li class="history__row-item">Успешно</li>
+                    </ul>
+                  </li>
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21231122</div>
+                        <div class="history__row-item--date">01.02.2021</div>
+                      </li>
+                      <li class="history__row-item">1000₽</li>
+                      <li class="history__row-item">Пополнение</li>
+                      <li class="history__row-item">Успешно</li>
+                    </ul>
+                  </li>
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21231110</div>
+                        <div class="history__row-item--date">01.02.2021</div>
+                      </li>
+                      <li class="history__row-item">200₽</li>
+                      <li class="history__row-item">Пополнение</li>
+                      <li class="history__row-item">Успешно</li>
+                    </ul>
+                  </li>
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21231134</div>
+                        <div class="history__row-item--date">02.02.2021</div>
+                      </li>
+                      <li class="history__row-item">1000₽</li>
+                      <li class="history__row-item">Вывод</li>
+                      <li class="history__row-item">Успешно</li>
+                    </ul>
+                  </li>
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21231122</div>
+                        <div class="history__row-item--date">01.02.2021</div>
+                      </li>
+                      <li class="history__row-item">1000₽</li>
+                      <li class="history__row-item">Пополнение</li>
+                      <li class="history__row-item">Успешно</li>
+                    </ul>
+                  </li>
+                  <li class="history__table-row">
+                    <ul class="history__row">
+                      <li class="history__row-item">
+                        <div class="history__row-item--id">21231110</div>
+                        <div class="history__row-item--date">01.02.2021</div>
+                      </li>
+                      <li class="history__row-item">200₽</li>
+                      <li class="history__row-item">Пополнение</li>
+                      <li class="history__row-item">Успешно</li>
+                    </ul>
+                  </li>
+                </ul>
               </div>
             </div>
-            <button class="modal__content-btn">войти</button>
-            <button class="modal__rewind-btn">Напомнить пароль</button>
           </div>
         </div>
 			</div>
 		</div>
 
-    <div class="modal__container" data-target="sms">
-			<div class="modal__enter modal-content ">
+    <div class="modal__container" data-target="profile">
+			<div class="modal__profile modal-content modal__cashbox">
         <button class="modal__close modal-close">&times;</button>
-        <div class="modal__title">Вход</div>
-        <div class="modal__tabs tabs" data-tabs>
-          <div class="modal__tabs-list tabs__list" data-list>
-            <button class="modal__tab modal__tab-phone tabs__button" data-target="tabs1">по телефону</button>
-            <button class="modal__tab modal__tab-password tabs__button" data-target="tabs2">с паролем</button>
-          </div>
+        <div class="modal__title">личный кабинет</div>
+        <div class="modal__tabs tabs">
+          <ul class="modal__tabs-list tabs__list">
+            <li class="tabs__item">
+              <button class="modal__tab modal__tab-add tablinks active" onclick="itemTabs(event, 'profile')">Профиль</button>
+            </li>
+            <li class="tabs__item">
+              <button class="modal__tab modal__tab-cashier tablinks" onclick="itemTabs(event, 'bonus')">Бонусы</button>
+            </li>
+            <li class="tabs__item">
+              <button class="modal__tab modal__tab-history tablinks" onclick="itemTabs(event, 'settings')">Управление</button>
+            </li>
+          </ul>
 
-          <div class="modal__tabs-content tabs__container" data-tab="tabs1">
+          <div class="modal__tabs-content tabcontent active" id="profile">
             <div class="modal__content-inner">
-              <div class="modal__inner-top">
-                <div class="modal__inner-text">Введите код из смс:</div>
-                <input class="modal__inner-input" type="text" placeholder="XX-XX-XX-XX">
+              <div class="modal__inner-top profile">
+                <div class="modal__inner-text">Ваш ID: <span class="profile__id">334534546</span></div>
+                <form class="profile__form">
+                  <div class="modal__inner-text">Ваше имя:</div>
+                  <input class="modal__inner-input" type="text" placeholder="Ввести">
+                </form>
+                <div class="profile__status">
+                  <div class="modal__inner-text">Ваш статус: <span class="profile__status-current profile__status-current--silver">СЕРЕБРО</span></div>
+                  <div class="profile__status-progress" >
+                    <div class="profile__status-bar">56%</div>
+                    <div class="profile__status-line"><span class="profile__status-line--silver" style="max-width: 56%;"></span></div>
+                  </div>
+                </div>
+                <button class="modal__content-btn profile__btn" type="submit">сохранить</button>
               </div>
             </div>
-            <button class="modal__content-btn" data-path="reset" data-animation="fade" data-speed="300" >войти</button>
           </div>
 
-          <div class="modal__tabs-content tabs__content" data-tab="tabs2">
-            <div class="modal__content-inner">
-              <div class="modal__inner-top">
-                <div class="modal__inner-text">Введите номер телефона:</div>
-                <input class="modal__inner-input" type="tel" placeholder="+X (XXX) XXX-XX-XX">
+          <div class="modal__tabs-content tabcontent" id="bonus">
+              <div class="bonus">
+                <div class="bonus__tabs tabs">
+                  <ul class="bonus__list tabs__list">
+                    <li class="bonus__item">
+                      <button class="bonus__tab tabs__btn tablinks" onclick="itemTabs(event, 'active')">Активные</button>
+                    </li>
+                    <li class="bonus__item">
+                      <button class="bonus__tab tabs__btn tablinks" onclick="itemTabs(event, 'available')">доступные</button>
+                    </li>
+                  </ul>
+
+                  <div class="bonus__banner">
+                    <div class="bonus__banner-swiper swiper-container">
+                      <div class="swiper-wrapper">
+                        <div class="bonus__banner-slide swiper-slide">promo banner 1 here 720x300</div>
+                        <div class="bonus__banner-slide swiper-slide">promo banner 2 here 720x300</div>
+                        <div class="bonus__banner-slide swiper-slide">promo banner 3 here 720x300</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal__tabs-content tabcontent active" id="active">
+                    <div class="modal__content-inner">
+                      <div class="modal__inner-top profile">
+                        <div class="modal__inner-text">Ваш ID: <span class="profile__id">334534546</span></div>
+                        <form class="profile__form">
+                          <div class="modal__inner-text">Ваше имя:</div>
+                          <input class="modal__inner-input" type="text" placeholder="Ввести">
+                        </form>
+                        <div class="profile__status">
+                          <div class="modal__inner-text">Ваш статус: <span class="profile__status-current profile__status-current--silver">СЕРЕБРО</span></div>
+                          <div class="profile__status-progress" >
+                            <div class="profile__status-bar">56%</div>
+                            <div class="profile__status-line"><span class="profile__status-line--silver" style="max-width: 56%;"></span></div>
+                          </div>
+                        </div>
+                        <button class="modal__content-btn profile__btn" type="submit">сохранить</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="modal__tabs-content tabcontent active" id="available">
+                    <div class="modal__content-inner">
+                      <div class="modal__inner-top profile">
+                        <div class="modal__inner-text">Ваш ID: <span class="profile__id">334534546</span></div>
+                        <form class="profile__form">
+                          <div class="modal__inner-text">Ваше имя:</div>
+                          <input class="modal__inner-input" type="text" placeholder="Ввести">
+                        </form>
+                        <div class="profile__status">
+                          <div class="modal__inner-text">Ваш статус: <span class="profile__status-current profile__status-current--silver">СЕРЕБРО</span></div>
+                          <div class="profile__status-progress" >
+                            <div class="profile__status-bar">56%</div>
+                            <div class="profile__status-line"><span class="profile__status-line--silver" style="max-width: 56%;"></span></div>
+                          </div>
+                        </div>
+                        <button class="modal__content-btn profile__btn" type="submit">сохранить</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="modal__inner-bottom">
-                <div class="modal__inner-text">Введите пароль:</div>
-                <input class="modal__inner-input" type="text" placeholder="****">
-              </div>
+          </div>
+
+          <div class="modal__tabs-content tabcontent" id="settings">
+            <div class="settings">
+              <form class="settings__form">
+                <div class="settings__line">
+                  <div class="settings__line-text">Ваш код: <span>11-22-33-44-55-66-77</span></div>
+                  <button class="setting__btn-change" type="button">изменить</button>
+                </div>
+                <div class="settings__line">
+                  <div class="settings__line-text">Ваш номер телефона: <span>+7 925 123-45-67</span></div>
+                  <button class="setting__btn-change" type="button" data-path="support" data-animation="fade" data-speed="300">изменить</button>
+                </div>
+                <div class="settings__line">
+                  <div class="settings__line-text">Ваш старый пароль: <span>PASSWORD234</span></div>
+                </div>
+                <div class="settings__line">
+                  <div class="settings__line-text ">Ваш новый пароль:</div>
+                  <input class="settings__input modal__inner-input" type="text" placeholder="Ввести" required>
+                </div>
+                <div class="settings__line">
+                  <div class="settings__line-text settings__line-text--confirm">Ваш новый пароль ещё раз:</div>
+                  <input class="settings__input modal__inner-input" type="text" placeholder="Ввести" required>
+                </div>
+                <button class="modal__content-btn settings__btn" type="submit">сохранить</button>
+              </form>
             </div>
-            <button class="modal__content-btn">войти</button>
-            <button class="modal__rewind-btn">Напомнить пароль</button>
           </div>
         </div>
-			</div>
-		</div>
-
-    <div class="modal__container" data-target="reset">
-			<div class="modal__enter modal-content ">
-        <button class="modal__close modal-close">&times;</button>
-        <div class="modal__title">Вход</div>
-        <div class="modal__tabs tabs" data-tabs>
-          <div class="modal__tabs-list tabs__list" data-list>
-            <button class="modal__tab modal__tab-phone tabs__button" data-target="tabb1">по телефону</button>
-            <button class="modal__tab modal__tab-password tabs__button" data-target="tabb2">с паролем</button>
-          </div>
-
-          <div class="modal__tabs-content tabs__container" data-tab="tabb1">
-            <div class="modal__content-inner">
-              <div class="modal__inner-top">
-                <div class="modal__inner-text">Придумайте пароль:</div>
-                <input class="modal__inner-input" type="text" placeholder="****">
-              </div>
-              <div class="modal__inner-bottom">
-                <div class="modal__inner-text">Повторите пароль:</div>
-                <input class="modal__inner-input" type="text" placeholder="****">
-              </div>
-            </div>
-            <button class="modal__content-btn">Войти</button>
-          </div>
-
-          <div class="modal__tabs-content tabs__container" data-tab="tabb2">
-            <div class="modal__content-inner">
-              <div class="modal__inner-top">
-                <div class="modal__inner-text">Введите номер телефона:</div>
-                <input class="modal__inner-input" type="tel" placeholder="+X (XXX) XXX-XX-XX">
-              </div>
-              <div class="modal__inner-bottom">
-                <div class="modal__inner-text">Введите пароль:</div>
-                <input class="modal__inner-input" type="text" placeholder="****">
-              </div>
-            </div>
-            <button class="modal__content-btn">Войти</button>
-            <button class="modal__rewind-btn">Напомнить пароль</button>
-          </div>
-        </div>
-			</div>
-		</div>
-
-    <div class="modal__container" data-target="registration">
-			<div class="modal__reg modal-content ">
-        <button class="modal__close modal-close">&times;</button>
-        <div class="modal__reg-text">Для регистрации в системе,
-          пожалуйста, обратитесь в <a class="modal__reg-link" href="#">техподдержку</a></div>
-			</div>
-		</div>
-
-		<div class="modal__container" data-target="limits">
-			<div class="modal-content">
-				<div class="popup__text">Чтобы играть без ограничений, пожалуйста, выполните вход</div>
 			</div>
 		</div>
 	</div>
 
-  <script src="js/just-validate.min.js"></script>
   <script src="js/inputmask.min.js"></script>
+  <script src="js/just-validate.min.js"></script>
   <script src="js/swiper.min.js"></script>
   <script src="js/common.min.js"></script>
 </body>

@@ -216,121 +216,31 @@ document.addEventListener('DOMContentLoaded', () => {
 	};
 });
 
-// class Tabs {
-//   constructor(root) {
-//       this.root = root;
-//       this.list = this.root.querySelector(':scope > [data-list]');
-//       this.buttons = new Map([...this.list.querySelectorAll(':scope > [data-target]')]
-//           .map(entry => [
-//               entry.dataset.target,
-//               entry,
-//           ])
-//       );
-//       this.containers = new Map([...this.root.querySelectorAll(':scope > [data-tab]')]
-//           .map(entry => [entry.dataset.tab, entry])
-//       );
-//       this.salt = Math.random().toString(36).slice(2);
-//       this.current = null;
-//       this.active = null;
-//   }
+// tab Andrey
+function itemTabs(evt, navName) {
+  // Declare all variables
+  var i, tabcontent, tablinks;
 
-//   select(name) {
-//       const keys = [...this.buttons.keys()];
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    // tabcontent[i].style.display = "none";
+    tabcontent[i].classList.remove('active');
+  }
 
-//       for (let [key, button] of this.buttons.entries()) {
-//           button.setAttribute('aria-selected', key === name);
-//       }
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
 
-//       for (let [key, container] of this.containers.entries()) {
-//           if (key === name) {
-//               container.removeAttribute('hidden');
-//           } else {
-//               container.setAttribute('hidden', true);
-//           }
-//       }
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(navName).className += " active";
+  evt.currentTarget.className += " active";
+  // document.getElementById(navName).className += " active";
 
-//       this.active = keys.indexOf(name);
-//   }
+}
 
-//   init() {
-//       const keys = [...this.buttons.keys()];
-
-//       this.list.setAttribute('role', 'tablist');
-
-//       this.list.addEventListener('keydown', event => {
-//           if (event.code === 'Home') {
-//               event.preventDefault();
-
-//               this.buttons.get(keys[0]).focus();
-//           }
-
-//           if (event.code === 'End') {
-//               event.preventDefault();
-
-//               this.buttons.get(keys[keys.length - 1]).focus();
-//           }
-
-//           if (event.code === 'ArrowLeft') {
-//               event.preventDefault();
-
-//               this.buttons.get(keys[Math.max(0, this.current - 1)]).focus();
-//           }
-
-//           if (event.code === 'ArrowRight') {
-//               event.preventDefault();
-
-//               this.buttons.get(keys[Math.min(keys.length - 1, this.current + 1)]).focus();
-//           }
-//       });
-
-//       for (let [key, button] of this.buttons.entries()) {
-//           button.setAttribute('tabindex', '0');
-//           button.setAttribute('id', `button_${this.salt}_=${key}`);
-//           button.setAttribute('role', 'tab');
-//           button.setAttribute('aria-controls', `container_${this.salt}_${key}`);
-
-//           button.addEventListener('click', event => {
-//               event.preventDefault();
-
-//               this.select(key);
-//           });
-
-//           button.addEventListener('focus', event => {
-//               this.current = keys.indexOf(key);
-//           });
-
-//           button.addEventListener('keypress', event => {
-//               if (event.code === 'Enter' || event.code === 'Space') {
-//                   event.preventDefault();
-
-//                   this.select(key);
-//               }
-//           });
-//       }
-
-//       for (let [key, container] of this.containers.entries()) {
-//           container.setAttribute('id', `container_${this.salt}_${key}`);
-//           container.setAttribute('role', 'tabpanel');
-//           container.setAttribute('aria-labelledby', `button_${this.salt}_${key}`);
-//       }
-
-//       this.select(keys[0]);
-//   }
-
-//   static create(element) {
-//       const instance = new Tabs(element);
-//       instance.init();
-
-//       return instance;
-//   }
-// }
-
-// const containers = document.querySelectorAll('[data-tabs]');
-
-// for (let container of containers) {
-//   const tabs = Tabs.create(container);
-//   console.log(tabs);
-// }
 
 // dropdown
 document.querySelectorAll('.dropdown').forEach(function (dropDownWrapper) {
@@ -374,11 +284,11 @@ document.querySelectorAll('.dropdown').forEach(function (dropDownWrapper) {
 });
 
 // calculator
-let calculatorElem = document.querySelector('.cashier__form, .sberbank__form'),
-    input = calculatorElem.querySelector('.modal__inner-input, .sberbank__form-input');
+let calculatorElem = document.querySelector('.cashier__form'),
+    input = calculatorElem.querySelector('.modal__inner-input');
 
 calculatorElem.addEventListener('click', evt => {
-  if (evt.target.matches('.cashier__form-btn, .sberbank__form-btn')) {
+  if (evt.target.matches('.cashier__form-btn')) {
     input.value = evt.target.value;
   } else if (evt.target.matches('.action')) {
     // ...
@@ -386,9 +296,9 @@ calculatorElem.addEventListener('click', evt => {
 });
 
 // inputMask
-let inputs = document.querySelectorAll('input[type="tel"]');
-let im = new Inputmask('+7 (999) 999-99-99');
-im.mask(inputs);
+// let inputs = document.querySelectorAll('input[type="tel"]');
+// let im = new Inputmask('+7 (999) 999-99-99');
+// im.mask(inputs);
 
 // validate
 // function validateForms(selector, rules) {
