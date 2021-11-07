@@ -27,8 +27,8 @@ let bonusBanner = new Swiper('.bonus__banner-swiper', {
 class Modal {
   constructor (options) {
       let defaultOptions = {
-          isOpen: () => {},
-          isClose: () => {},
+          onOpen: () => {},
+          onClose: () => {},
       };
       this.options = Object.assign(defaultOptions, options);
       this.modal = document.querySelector('.modal');
@@ -101,7 +101,7 @@ class Modal {
 
       setTimeout(() => {
           this.modalContainer.classList.add('animate-open');
-          this.options.isOpen(this);
+          this.options.onOpen(this);
           this.isOpen = true;
           this.focusTrap();
       }, this.speed);
@@ -115,7 +115,7 @@ class Modal {
           this.modalContainer.classList.remove('modal-open');
 
           this.enableScroll();
-          this.options.isClose(this);
+          this.options.onClose(this);
           this.isOpen = false;
           this.focusTrap();
       }
@@ -179,66 +179,54 @@ class Modal {
   }
 }
 
+// let currentTabContent = [];
+// let currentTabLinks = [];
+
 const modal = new Modal({
-  isOpen: (modal) => {
+  onOpen: (modal) => {
       console.log(modal);
       console.log('opened');
   },
-  isClose: () => {
-      console.log('closed');
+  onClose: () => {
+      // tabsCleanup();
   },
 });
 
-// tabs
-document.addEventListener('DOMContentLoaded', () => {
-	const tabs = document.querySelector('.tabs');
-	const tabsBtn = document.querySelectorAll('.tabs__btn');
-	const tabsContent = document.querySelectorAll('.tabs__content');
+// function tabsCleanup() {
+//   // remove 'active' class names
+//   currentTabContent.forEach(tabContent => tabContent.classList.remove('active'));
+//   currentTabLinks.forEach(tabLink => tabLink.classList.remove("active"));
 
-	if (tabs) {
-		tabs.addEventListener('click', (e) => {
-			if (e.target.classList.contains('tabs__btn')) {
-				const tabsPath = e.target.dataset.tabsPath;
-				tabsBtn.forEach(el => {
-          el.classList.remove('tabs__btn--active');
-        });
-				document.querySelector(`[data-tabs-path="${tabsPath}"]`).classList.add('tabs__btn--active');
-				tabsHandler(tabsPath);
-			}
-		});
-	}
+//   // set the first tab as active
+//   const firstTabButton = currentTabLinks[0];
+//   const firstTabContent = currentTabContent.find(element => element.id === firstTabButton.dataset.tabContentId);
 
-	const tabsHandler = (path) => {
-		tabsContent.forEach(el => {
-      el.classList.remove('tabs__content--active');
-    });
-		document.querySelector(`[data-tabs-target="${path}"]`).classList.add('tabs__content--active');
-	};
-});
+//   firstTabButton.classList.add('active');
+//   firstTabContent.classList.add('active');
+
+//   currentTabContent = [];
+//   currentTabLinks = [];
+// }
 
 // tab Andrey
-function itemTabs(evt, navName) {
-  // Declare all variables
-  var i, tabcontent, tablinks;
+function itemTabs(evt) {
+  // const currentTabContent = [];
+  // const currentTabLinks = [];
 
-  // Get all elements with class="tabcontent" and hide them
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    // tabcontent[i].style.display = "none";
-    tabcontent[i].classList.remove('active');
-  }
+  const navName = evt.target.dataset.tabContentId;
 
-  // Get all elements with class="tablinks" and remove the class "active"
-  tablinks = document.getElementsByClassName("tablinks");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
+  const tabsContainer = evt.target.closest('.tabs');
+  const tabsButton = evt.currentTarget;
+  const tabContent = document.getElementById(navName);
 
-  // Show the current tab, and add an "active" class to the button that opened the tab
-  document.getElementById(navName).className += " active";
-  evt.currentTarget.className += " active";
-  // document.getElementById(navName).className += " active";
+  const currentTabContent = [...tabsContainer.getElementsByClassName("tabcontent")];
+  currentTabContent.forEach(tabContent => tabContent.classList.remove('active'));
 
+  const currentTabLinks = [...tabsContainer.getElementsByClassName("tablinks")];
+  currentTabLinks.forEach(tabLink => tabLink.classList.remove("active"));
+
+  tabContent.classList.add('active');
+  tabsButton.classList.add('active');
 }
 
 
@@ -284,16 +272,20 @@ document.querySelectorAll('.dropdown').forEach(function (dropDownWrapper) {
 });
 
 // calculator
-let calculatorElem = document.querySelector('.cashier__form'),
-    input = calculatorElem.querySelector('.modal__inner-input');
+const calculatorElements = [...document.querySelectorAll('.cashier__form')];
 
-calculatorElem.addEventListener('click', evt => {
+calculatorElements.forEach(calculatorElemnt => {
+  const input = calculatorElemnt.querySelector('.modal__inner-input');
+
+  calculatorElemnt.addEventListener('click', evt => {
   if (evt.target.matches('.cashier__form-btn')) {
-    input.value = evt.target.value;
+  input.value = evt.target.value;
   } else if (evt.target.matches('.action')) {
-    // ...
+  // ...
   }
+  });
 });
+
 
 // inputMask
 // let inputs = document.querySelectorAll('input[type="tel"]');
