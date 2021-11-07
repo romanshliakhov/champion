@@ -208,6 +208,18 @@ const modal = new Modal({
 //   currentTabLinks = [];
 // }
 
+//
+
+// disable
+const disableBannerBtn = [...document.querySelectorAll('.bonus__tab')];
+const bannerSlider = document.querySelector('.bonus__banner');
+
+disableBannerBtn.forEach(function (disableBtn) {
+  disableBtn.addEventListener('click', function () {
+    bannerSlider.classList.add('disable');
+  });
+});
+
 // tab Andrey
 function itemTabs(evt) {
   // const currentTabContent = [];
@@ -227,7 +239,9 @@ function itemTabs(evt) {
 
   tabContent.classList.add('active');
   tabsButton.classList.add('active');
+  bannerSlider.classList.remove('disable');
 }
+
 
 
 // dropdown
@@ -286,34 +300,58 @@ calculatorElements.forEach(calculatorElemnt => {
   });
 });
 
+// imput Mask
+window.addEventListener("DOMContentLoaded", function() {
+  [].forEach.call( document.querySelectorAll('.tel'), function(input) {
+  var keyCode;
+  function mask(event) {
+      event.keyCode && (keyCode = event.keyCode);
+      var pos = this.selectionStart;
+      if (pos < 3) event.preventDefault();
+      var matrix = "+7 (___) ___-__-__",
+          i = 0,
+          def = matrix.replace(/\D/g, ""),
+          val = this.value.replace(/\D/g, ""),
+          new_value = matrix.replace(/[_\d]/g, function(a) {
+              return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+          });
+      i = new_value.indexOf("_");
+      if (i != -1) {
+          i < 5 && (i = 3);
+          new_value = new_value.slice(0, i)
+      }
+      var reg = matrix.substr(0, this.value.length).replace(/_+/g,
+          function(a) {
+              return "\\d{1," + a.length + "}"
+          }).replace(/[+()]/g, "\\$&");
+      reg = new RegExp("^" + reg + "$");
+      if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value = new_value;
+      if (event.type == "blur" && this.value.length < 5)  this.value = "";
+  }
 
-// inputMask
-let inputs = document.querySelectorAll('input[type="tel"]');
-let im = new Inputmask('+7 (999) 999-99-99');
-im.mask(inputs);
+  input.addEventListener("input", mask, false);
+  input.addEventListener("focus", mask, false);
+  input.addEventListener("blur", mask, false);
+  input.addEventListener("keydown", mask, false)
 
-// validate
-// function validateForms(selector, rules) {
-//   new window.JustValidate(selector, {
-//       rules: rules,
-//       submitHandler: function (form, values, ajax) {
-//           console.log(form);
+  });
+});
 
-//           let formData = new FormData(form);
+// accordeon
 
-//           fetch("mail.php", {
-//               method: "POST",
-//               body: formData
-//           })
-//           .then(function(data) {
-//               console.log(data);
-//               console.log('Отправлено');
-//               form.reset();
-//           });
-//       }
-//   });
-// }
+var acc = document.getElementsByClassName("accordion");
+var i;
 
-// validateForms('.form', { email: { required: true, email: true }, fio: { required: true }, tel: { required: true } });
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
 
 

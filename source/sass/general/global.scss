@@ -139,3 +139,10 @@ input[type="search"]::-webkit-search-results-decoration {
   top: 0;
   z-index: 10;
 }
+
+.panel {
+  z-index: 20;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .2s ease-out;
+}

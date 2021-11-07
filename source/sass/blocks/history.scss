@@ -6,15 +6,34 @@
 .history__head {
   display: flex;
   justify-content: space-between;
+  width: 107%;
+  padding-left: 20px;
 }
 
 .history__bottom {
-  width: 100%;
+  width: 107%;
   height: 580px;
+  padding-left: 20px;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
-    margin-left: 17px;
+    width: 4px;
+    box-shadow: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #72564C;
+    border: 1px solid #8E7970;
+    background-clip: padding-box;
+    box-shadow: none;
+  }
+
+  &::-webkit-scrollbar-track {
+    border: 1px solid #968175;
+    cursor: pointer;
+    border-radius: 6px;
+    box-shadow: none;
+    width: 14px;
   }
 }
 
@@ -28,7 +47,7 @@
 .history__table {
   border-radius: 12px;
   background-color: #fff;
-  width: 100%;
+  width: 750px;
   font-size: 20px;
   line-height: 26px;
   font-weight: 400;
