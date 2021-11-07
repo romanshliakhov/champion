@@ -39,3 +39,40 @@
 .bonus__banner-slide {
   background: #5A5172;
 }
+
+.bonus__item-descr {
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.bonus__item-btn {
+  width: 220px;
+  height: 46px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 3px solid #684c44;
+  background: linear-gradient(180deg, rgba(108, 255, 229, 0.5) 0%, rgba(45, 25, 61, 0.229167) 69.27%, rgba(0, 0, 0, 0) 100%), #04AE34;
+  background-blend-mode: luminosity, normal;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+
+  &:hover {
+    background-blend-mode: luminosity, normal;
+    box-shadow: 0px 0px 20px rgba(198, 106, 254, 0.25);
+    border-radius: 8px;
+  }
+
+  &:active {
+    opacity: 0.75;
+    box-shadow: inset 0px 0px 20px #000000;
+  }
+}
+
+// .bonus__content.modal__tabs-content.tabcontent.active {
+//   .bonus__banner {
+//     display: none;
+//   }
+// }
