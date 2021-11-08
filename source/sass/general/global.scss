@@ -163,3 +163,12 @@ input[type="search"]::-webkit-search-results-decoration {
   overflow: hidden;
   transition: 0.3s all;
 }
+
+
+@media (min-width: 1000) and (max-width: 1600px) {
+  .container {
+    max-width: 1000px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+}

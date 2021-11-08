@@ -1,0 +1,75 @@
+@media (min-width: 1000px) and (max-width: 1600px) {
+  .container {
+    max-width: 1000px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+
+  .marquee__news-text {
+    min-width: 150%;
+  }
+
+  .banner {
+    height: 434px;
+  }
+
+  .games {
+    margin-top: 26px;
+    padding: 83px 70px 0;
+  }
+
+  .games__item {
+    margin-bottom: 40px;
+  }
+
+  .more {
+    margin-top: 50px;
+  }
+
+  .footer__socials {
+    right: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 999px) {
+  .container {
+    max-width: 540px;
+    padding: 0 15px;
+    margin: 0 auto;
+  }
+
+  .marquee__news-text {
+    min-width: 200%;
+  }
+
+  .banner {
+    height: 534px;
+  }
+
+  .games {
+    margin-top: 26px;
+    padding: 83px 70px 0;
+  }
+
+  .games__item {
+    margin-bottom: 40px;
+  }
+
+  .more {
+    margin-top: 50px;
+  }
+
+  .footer__socials {
+    right: 0;
+  }
+}
+
+// @media (min-width:500px) and (max-width: 767px) {
+
+// }
+
+// @media (min-width: 320px) and (max-width: 499px) {
+
+// }
+
+
