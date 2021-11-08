@@ -146,3 +146,20 @@ input[type="search"]::-webkit-search-results-decoration {
   overflow: hidden;
   transition: max-height .2s ease-out;
 }
+
+.accordion-item--active .accordion-item__content{
+  display: block;
+  overflow: visible;
+  position: absolute;
+  z-index: 100;
+}
+
+.accordion-item__trigger {
+  cursor: pointer;
+}
+
+.accordion-item__content {
+  display: none;
+  overflow: hidden;
+  transition: 0.3s all;
+}

@@ -212,11 +212,13 @@ const modal = new Modal({
 
 // disable
 const disableBannerBtn = [...document.querySelectorAll('.bonus__tab')];
-const bannerSlider = document.querySelector('.bonus__banner');
+const bannerSlider = [...document.querySelectorAll('.bonus__banner')];
 
 disableBannerBtn.forEach(function (disableBtn) {
   disableBtn.addEventListener('click', function () {
-    bannerSlider.classList.add('disable');
+    bannerSlider.forEach(function (disableSlider) {
+      disableSlider.classList.add('disable');
+    });
   });
 });
 
@@ -240,8 +242,10 @@ function itemTabs(evt) {
   tabContent.classList.add('active');
   tabsButton.classList.add('active');
   bannerSlider.classList.remove('disable');
+  // bannerSlider.forEach(function (disableSlider) {
+  //   disableSlider.classList.remove('disable');
+  // });
 }
-
 
 
 // dropdown
@@ -352,5 +356,15 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
+
+// accordion
+document.querySelectorAll('.accordion-item__trigger').forEach((item) =>
+  item.addEventListener('click', () => {
+    const parent = item.parentNode;
+
+    parent.classList.toggle('accordion-item--active');
+  })
+);
+
 
 
