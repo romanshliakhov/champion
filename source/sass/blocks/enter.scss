@@ -16,6 +16,7 @@
     border-image-source: linear-gradient(0deg, #684C44, #684C44),linear-gradient(180deg, rgba(208, 183, 146, 0.3) 0%, rgba(112, 95, 81, 0) 100%);
     border-image-slice: 1;
     text-transform: uppercase;
+    position: relative;
 
     &:hover {
       box-shadow: 0px 0px 20px rgba(198, 106, 254, 0.25);
@@ -120,17 +121,67 @@
     display: flex;
     align-items: center;
     padding: 0 20px;
+    position: relative;
   }
 
   &__info-decoration {
     margin-left: 5px;
     color: #C5B873;
+    position: relative;
 
     &--current {
       text-decoration: underline;
       cursor: pointer;
     }
   }
+
+  &__account {
+    position: absolute;
+    width: 225px;
+    height: auto;
+    top: 30px;
+    background-color: #fff;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25), inset -5px -5px 5px rgba(49, 41, 56, 0.15);
+    border-radius: 8px;
+    padding: 0 16px;
+  }
+
+  &__account-profile {
+    position: absolute;
+    width: 210px;
+    height: auto;
+    top: 60px;
+    background-color: #fff;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25), inset -5px -5px 5px rgba(49, 41, 56, 0.15);
+    border-radius: 8px;
+    padding: 0 13px;
+    transition: 0.3s all;
+  }
+
+  &__account-item {
+    height: 60px;
+    border-bottom: 1px solid #3B2158;
+    padding-top: 16px;
+
+    &:last-child {
+      border: none;
+    }
+  }
+
+  &__account-btn {
+    width: 100%;
+    font-size: 22px;
+    line-height: 29px;
+    font-weight: 700;
+    color: #3B2158;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+
+    &:hover {
+      color: #76539D;
+    }
+  }
 }
+
 
 

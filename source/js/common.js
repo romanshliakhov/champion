@@ -338,7 +338,6 @@ window.addEventListener("DOMContentLoaded", function() {
 });
 
 // accordeon
-
 var acc = document.getElementsByClassName("accordion");
 var i;
 

@@ -31,8 +31,15 @@
           <div class="enter__info">
             <div class="enter__info-item">
               <p class="enter__info-text">Игровой счёт:</p>
-              <!-- <button class="enter__info-decoration enter__info-decoration--current" id="enter__popup">3000₽</button> -->
-              <button class="enter__info-decoration enter__info-decoration--current" data-path="addfunds" data-animation="fade" data-speed="300">3000₽</button>
+              <button class="enter__info-decoration enter__info-decoration--current accordion">3000₽</button>
+              <ul class="enter__account panel">
+                <li class="enter__account-item">
+                  <button class="enter__account-btn" type="button" data-path="addfunds" data-animation="fade" data-speed="300">пополнить счёт</button>
+                </li>
+                <li class="enter__account-item">
+                  <button class="enter__account-btn" type="button">отмена</button>
+                </li>
+              </ul>
             </div>
             <div class="enter__info-item">
               <p class="enter__info-text">Бонусный счёт: </p>
@@ -44,7 +51,18 @@
             </div>
           </div>
           <div class="enter__profile enter__btn">
-            <button class="enter__profile-btn" data-path="profile" data-animation="fade" data-speed="300">Профиль</button>
+            <button class="enter__profile-btn accordion" type="button">Профиль</button>
+            <ul class="enter__account-profile panel">
+              <li class="enter__account-item">
+                <button class="enter__account-btn" type="button" data-path="profile" data-animation="fade" data-speed="300">Пополнить счёт</button>
+              </li>
+              <li class="enter__account-item">
+                <button class="enter__account-btn" type="button">Бонусы</button>
+              </li>
+              <li class="enter__account-item">
+                <button class="enter__account-btn" type="button">Выйти</button>
+              </li>
+            </ul>
           </div>
         </section>
 
