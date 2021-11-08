@@ -24,25 +24,10 @@
 
   &__item-icon {
     position: relative;
-    width: 100%;
-
-    &::after {
-      content: "";
-      position: absolute;
-      background-image: url("../img/border.png");
-      left: -35px;
-      top: -17px;
-      width: 400px;
-      height: 200px;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-  }
+    width: 100%;  }
 
   &__item-img {
     display: block;
-    width: 284px;
-    height: 159px;
     position: relative;
     opacity: 0.75;
   }
@@ -66,7 +51,6 @@
     line-height: 16px;
     font-weight: 700;
     text-transform: uppercase;
-    padding: 5px 13px;
     clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
     position: relative;
     cursor: pointer;

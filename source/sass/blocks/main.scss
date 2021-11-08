@@ -11,12 +11,10 @@
     min-height: 2520px;
   }
 
-
   &__head {
     background-image: url("../img/logo.png");
-    height: 689px;
-    background-position: center;
-    background-size: cover;
+    background-position: top;
+    background-size: 100%;
     background-repeat: no-repeat;
     position: relative;
   }
@@ -27,8 +25,8 @@
     background-image: url("../img/diamond.png");
     width: 80px;
     height: 78px;
-    bottom: 130px;
-    left: 250px;
+    bottom: 80px;
+    left: 220px;
     background-size: cover;
     mix-blend-mode: screen;
     transform: matrix(0.98, 0.17, -0.19, 0.99, 0, 0);
@@ -40,7 +38,7 @@
     background-image: url("../img/diamond.png");
     width: 129px;
     height: 129px;
-    bottom: 80px;
+    bottom: 25px;
     right: 565px;
     background-size: cover;
     mix-blend-mode: screen;
