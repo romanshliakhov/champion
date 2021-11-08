@@ -51,6 +51,7 @@
 }
 
 .bonus__item-btn {
+  margin-top: 50px;
   width: 220px;
   height: 46px;
   font-size: 18px;
@@ -122,8 +123,13 @@
 }
 
 .bonus__avaliable-item {
-  height: 205px;
+  min-height: 200px;
   border-bottom: 1px solid #FFFFFF;
+  padding-bottom: 30px;
+
+  &:last-child {
+    border: none;
+  }
 }
 
 .bonus__avaliable-item +.bonus__avaliable-item {

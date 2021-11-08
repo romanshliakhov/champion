@@ -26,7 +26,9 @@
       <div class="container">
         <section class="enter">
           <div class="enter__cashbox enter__btn">
-            <button class="enter__cashbox-btn" data-path="cashbox" data-animation="fade" data-speed="300">Касса</button>
+            <button class="enter__cashbox-btn" data-path="cashbox" data-animation="fade" data-speed="300">
+              <span>Касса</span>
+            </button>
           </div>
           <div class="enter__info">
             <div class="enter__info-item">
@@ -51,7 +53,9 @@
             </div>
           </div>
           <div class="enter__profile accordion-item">
-            <div class="enter__profile-btn accordion-item__trigger" type="button">Профиль</div>
+            <div class="enter__profile-btn accordion-item__trigger" type="button">
+              <span>Профиль</span>
+            </div>
 
             <div class="accordion-item__content">
               <ul class="enter__account-profile">
@@ -90,7 +94,7 @@
             </a>
             <div class="games__item-information">
               <div class="games__item-info">
-                <div class="games__item-status games__item-status--new">new</div>
+                <button class="games__item-status games__item-status--new">new</button>
               </div>
               <a class="games__item-title" href="#">ultra hot deluxe</a>
             </div>
@@ -125,7 +129,7 @@
             </a>
             <div class="games__item-information">
               <div class="games__item-info">
-                <div class="games__item-status games__item-status--new">new</div>
+                <button class="games__item-status games__item-status--new">new</button>
               </div>
               <a href="#" class="games__item-title">gates of avalon</a>
             </div>
@@ -547,13 +551,13 @@
         <div class="modal__tabs tabs">
           <ul class="modal__tabs-list tabs__list">
             <li class="tabs__item">
-              <button class="modal__tab modal__tab-add tablinks" onclick="itemTabs(event)" data-tab-content-id="profile5">Профиль</button>
+              <button class="modal__tab modal__tab-profile tablinks" onclick="itemTabs(event)" data-tab-content-id="profile5">Профиль</button>
             </li>
             <li class="tabs__item">
-              <button class="modal__tab modal__tab-cashier tablinks active" onclick="itemTabs(event)" data-tab-content-id="bonus5">Бонусы</button>
+              <button class="modal__tab modal__tab-bonus tablinks active" onclick="itemTabs(event)" data-tab-content-id="bonus5">Бонусы</button>
             </li>
             <li class="tabs__item">
-              <button class="modal__tab modal__tab-history tablinks" onclick="itemTabs(event)" data-tab-content-id="settings5">Управление</button>
+              <button class="modal__tab modal__tab-settings tablinks" onclick="itemTabs(event)" data-tab-content-id="settings5">Управление</button>
             </li>
           </ul>
 
@@ -705,13 +709,13 @@
         <div class="modal__tabs tabs">
           <ul class="modal__tabs-list tabs__list">
             <li class="tabs__item">
-              <button class="modal__tab modal__tab-add tablinks active" onclick="itemTabs(event)" data-tab-content-id="profile">Профиль</button>
+              <button class="modal__tab modal__tab-profile tablinks active" onclick="itemTabs(event)" data-tab-content-id="profile">Профиль</button>
             </li>
             <li class="tabs__item">
-              <button class="modal__tab modal__tab-cashier tablinks" onclick="itemTabs(event)" data-tab-content-id="bonus">Бонусы</button>
+              <button class="modal__tab modal__tab-bonus tablinks" onclick="itemTabs(event)" data-tab-content-id="bonus">Бонусы</button>
             </li>
             <li class="tabs__item">
-              <button class="modal__tab modal__tab-history tablinks" onclick="itemTabs(event)" data-tab-content-id="settings">Управление</button>
+              <button class="modal__tab modal__tab-settings tablinks" onclick="itemTabs(event)" data-tab-content-id="settings">Управление</button>
             </li>
           </ul>
 
@@ -813,6 +817,26 @@
                       <li class="bonus__avaliable-item">
                         <div class="bonus__item-head accordion">
                           <div class="bonus__item-title">БОНУС 5</div>
+                          <svg  width='12' height='12'>
+                          <use href='img/sprite/sprite.svg#arrow'></use>
+                          </svg>
+                        </div>
+                        <p class="bonus__item-descr panel">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <button class="bonus__item-btn" type="button">Активировать</button>
+                      </li>
+                      <li class="bonus__avaliable-item">
+                        <div class="bonus__item-head accordion">
+                          <div class="bonus__item-title">БОНУС 6</div>
+                          <svg  width='12' height='12'>
+                          <use href='img/sprite/sprite.svg#arrow'></use>
+                          </svg>
+                        </div>
+                        <p class="bonus__item-descr panel">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <button class="bonus__item-btn" type="button">Активировать</button>
+                      </li>
+                      <li class="bonus__avaliable-item">
+                        <div class="bonus__item-head accordion">
+                          <div class="bonus__item-title">БОНУС 7</div>
                           <svg  width='12' height='12'>
                           <use href='img/sprite/sprite.svg#arrow'></use>
                           </svg>
@@ -1596,7 +1620,7 @@
 			<div class="modal__reg modal__new modal-content">
         <button class="modal__close modal-close">&times;</button>
         <div class="modal__reg-text">Если вы хотите сделать вывод на новую карту, пожалуйста, свяжитесь с <a class="modal__reg-link" href="#">техподдержкой</a></div>
-        <button class="modal__new-btn modal__tab" type="submit">Ок</button>
+        <button class="modal__btn-default modal__new-btn modal__tab" type="submit">Ок</button>
 			</div>
 		</div>
 
@@ -1605,7 +1629,7 @@
         <button class="modal__close modal-close">&times;</button>
         <div class="modal__reg-text">Заявка на выплату 500₽ сформирована!</div>
         <div class="modal__reg-text">Средства поступят на ваш счёт в течение нескольких минут после перевода.</div>
-        <button class="modal__new-btn modal__tab" type="submit">Ок</button>
+        <button class="modal__new-btn modal__btn-default modal__tab" type="submit">Ок</button>
 			</div>
 		</div>
 
@@ -1617,8 +1641,8 @@
           <span>1234 5678 9944 0202</span></div>
         <div class="modal__reg-text">Средства поступят на ваш счёт в течение нескольких минут после перевода.</div>
         <div class="confirm__btns">
-          <button class="modal__new-btn modal__tab" type="submit">Ок</button>
-          <button class="modal__new-btn modal__tab" type="submit">
+          <button class="modal__new-btn modal__btn-default modal__tab" type="submit">Ок</button>
+          <button class="modal__new-btn modal__btn-default modal__tab" type="submit">
             <svg  width='24px' height='24px'>
             <use href='img/sprite/sprite.svg#sber'></use>
             </svg>
