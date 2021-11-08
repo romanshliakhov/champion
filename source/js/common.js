@@ -188,7 +188,11 @@ const modal = new Modal({
       console.log('opened');
   },
   onClose: () => {
-      // tabsCleanup();
+    const bonusBanners = [...document.getElementsByClassName('bonus__banner')];
+
+    if (bonusBanners.length) {
+      bonusBanners.forEach((bonusBanner) => bonusBanner.classList.remove('disable'));
+    }
   },
 });
 
@@ -212,21 +216,38 @@ const modal = new Modal({
 
 // disable
 const disableBannerBtn = [...document.querySelectorAll('.bonus__tab')];
-const bannerSlider = [...document.querySelectorAll('.bonus__banner')];
+const bannerSliders = [...document.querySelectorAll('.bonus__banner')];
 
-disableBannerBtn.forEach(function (disableBtn) {
-  disableBtn.addEventListener('click', function () {
-    bannerSlider.forEach(function (disableSlider) {
-      disableSlider.classList.add('disable');
-    });
+disableBannerBtn.forEach((disableBtn) => {
+  disableBtn.addEventListener('click', () => {
+    bannerSliders.forEach((bannerSlider) => bannerSlider.classList.add('disable'));
   });
 });
 
 // tab Andrey
 function itemTabs(evt) {
-  // const currentTabContent = [];
-  // const currentTabLinks = [];
+  const navName = evt.target.dataset.tabContentId;
 
+  const tabsContainer = evt.target.closest('.tabs');
+  const tabsButton = evt.currentTarget;
+  const tabContent = document.getElementById(navName);
+  const bonusBanner = tabsContainer.querySelector('.bonus__banner');
+
+  if (bonusBanner) {
+    bonusBanner.classList.remove('disable');
+  }
+
+  const currentTabContent = [...tabsContainer.getElementsByClassName("tabcontent")];
+  currentTabContent.forEach(tabContent => tabContent.classList.remove('active'));
+
+  const currentTabLinks = [...tabsContainer.getElementsByClassName("tablinks")];
+  currentTabLinks.forEach(tabLink => tabLink.classList.remove("active"));
+
+  tabContent.classList.add('active');
+  tabsButton.classList.add('active');
+}
+
+function bannerTabs(evt) {
   const navName = evt.target.dataset.tabContentId;
 
   const tabsContainer = evt.target.closest('.tabs');
@@ -241,10 +262,6 @@ function itemTabs(evt) {
 
   tabContent.classList.add('active');
   tabsButton.classList.add('active');
-  bannerSlider.classList.remove('disable');
-  // bannerSlider.forEach(function (disableSlider) {
-  //   disableSlider.classList.remove('disable');
-  // });
 }
 
 
