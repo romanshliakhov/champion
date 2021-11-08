@@ -54,13 +54,13 @@
             <button class="enter__profile-btn accordion" type="button">Профиль</button>
             <ul class="enter__account-profile panel">
               <li class="enter__account-item">
-                <button class="enter__account-btn" type="button" data-path="profile" data-animation="fade" data-speed="300">Пополнить счёт</button>
+                <button class="enter__account-btn" data-path="profile" data-animation="fade" data-speed="300">Пополнить счёт</button>
               </li>
               <li class="enter__account-item">
-                <button class="enter__account-btn" type="button">Бонусы</button>
+                <button class="enter__account-btn" data-path="bonuses" data-animation="fade" data-speed="300">Бонусы</button>
               </li>
               <li class="enter__account-item">
-                <button class="enter__account-btn" type="button">Выйти</button>
+                <button class="enter__account-btn">Выйти</button>
               </li>
             </ul>
           </div>
@@ -667,6 +667,164 @@
           </div>
 
           <div class="modal__tabs-content tabcontent" id="settings">
+            <div class="settings">
+              <form class="settings__form">
+                <div class="settings__line">
+                  <div class="settings__line-text">Ваш код: <span>11-22-33-44-55-66-77</span></div>
+                  <button class="setting__btn-change" type="button">изменить</button>
+                </div>
+                <div class="settings__line">
+                  <div class="settings__line-text">Ваш номер телефона: <span>+7 925 123-45-67</span></div>
+                  <button class="setting__btn-change" type="button" data-path="support" data-animation="fade" data-speed="300">изменить</button>
+                </div>
+                <div class="settings__line">
+                  <div class="settings__line-text">Ваш старый пароль: <span>PASSWORD234</span></div>
+                </div>
+                <div class="settings__line">
+                  <div class="settings__line-text ">Ваш новый пароль:</div>
+                  <input class="settings__input modal__inner-input" type="text" placeholder="Ввести" required>
+                </div>
+                <div class="settings__line">
+                  <div class="settings__line-text settings__line-text--confirm">Ваш новый пароль ещё раз:</div>
+                  <input class="settings__input modal__inner-input" type="text" placeholder="Ввести" required>
+                </div>
+                <button class="modal__content-btn settings__btn" type="submit">сохранить</button>
+              </form>
+            </div>
+          </div>
+        </div>
+			</div>
+		</div>
+
+    <div class="modal__container" data-target="bonuses">
+			<div class="modal__profile modal-content modal__cashbox">
+        <button class="modal__close modal-close">&times;</button>
+        <div class="modal__title">личный кабинет</div>
+        <div class="modal__tabs tabs">
+          <ul class="modal__tabs-list tabs__list">
+            <li class="tabs__item">
+              <button class="modal__tab modal__tab-add tablinks" onclick="itemTabs(event)" data-tab-content-id="profile5">Профиль</button>
+            </li>
+            <li class="tabs__item">
+              <button class="modal__tab modal__tab-cashier tablinks active" onclick="itemTabs(event)" data-tab-content-id="bonus5">Бонусы</button>
+            </li>
+            <li class="tabs__item">
+              <button class="modal__tab modal__tab-history tablinks" onclick="itemTabs(event)" data-tab-content-id="settings5">Управление</button>
+            </li>
+          </ul>
+
+          <div class="modal__tabs-content tabcontent" id="profile5">
+            <div class="modal__content-inner">
+              <div class="modal__inner-top profile">
+                <div class="modal__inner-text">Ваш ID: <span class="profile__id">334534546</span></div>
+                <form class="profile__form">
+                  <div class="modal__inner-text">Ваше имя:</div>
+                  <input class="modal__inner-input" type="text" placeholder="Ввести">
+                </form>
+                <div class="profile__status">
+                  <div class="modal__inner-text">Ваш статус: <span class="profile__status-current profile__status-current--silver">СЕРЕБРО</span></div>
+                  <div class="profile__status-progress" >
+                    <div class="profile__status-bar">56%</div>
+                    <div class="profile__status-line"><span class="profile__status-line--silver" style="max-width: 56%;"></span></div>
+                  </div>
+                </div>
+                <button class="modal__content-btn profile__btn" type="submit">сохранить</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="modal__tabs-content tabcontent active" id="bonus5">
+              <div class="bonus">
+                <div class="modal__tabs tabs">
+                  <ul class="bonus__list tabs__list">
+                    <li class="bonus__item tabs__item">
+                      <button class="modal__tab  bonus__tab tabs__btn tablinks" onclick="itemTabs(event)" data-tab-content-id="active5">Активные</button>
+                    </li>
+                    <li class="bonus__item tabs__item">
+                      <button class="modal__tab  bonus__tab tabs__btn tablinks" onclick="itemTabs(event)" data-tab-content-id="avaliable5">доступные</button>
+                    </li>
+                  </ul>
+
+                  <div class="bonus__banner">
+                    <div class="bonus__banner-swiper swiper-container">
+                      <div class="swiper-wrapper">
+                        <div class="bonus__banner-slide swiper-slide">promo banner 1 here 720x300</div>
+                        <div class="bonus__banner-slide swiper-slide">promo banner 2 here 720x300</div>
+                        <div class="bonus__banner-slide swiper-slide">promo banner 3 here 720x300</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bonus__content modal__tabs-content tabcontent" id="active5">
+                    <ul class="bonus__active">
+                      <li class="bonus__active-item">
+                        <div class="bonus__item-head accordion">
+                          <div class="bonus__item-title">БОНУС 1</div>
+                          <svg  width='12' height='12'>
+                          <use href='img/sprite/sprite.svg#arrow'></use>
+                          </svg>
+                        </div>
+                        <p class="bonus__item-descr panel">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <div class="bonus__progress profile__status-progress" >
+                          <div class="profile__status-bar profile__status-bar--gold">23%</div>
+                          <div class="profile__status-line"><span class="profile__status-line--gold" style="max-width: 23%;"></span></div>
+                        </div>
+                      </li>
+                      <li class="bonus__active-item">
+                        <div class="bonus__item-head accordion">
+                          <div class="bonus__item-title">БОНУС 2</div>
+                          <svg  width='12' height='12'>
+                          <use href='img/sprite/sprite.svg#arrow'></use>
+                          </svg>
+                        </div>
+                        <p class="bonus__item-descr panel">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <div class="bonus__progress profile__status-progress" >
+                          <div class="profile__status-bar profile__status-bar--gold">5%</div>
+                          <div class="profile__status-line"><span class="profile__status-line--gold" style="max-width: 5%;"></span></div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="bonus__content modal__tabs-content tabcontent" id="avaliable5">
+                    <ul class="bonus__avaliable">
+                      <li class="bonus__avaliable-item">
+                        <div class="bonus__item-head accordion">
+                          <div class="bonus__item-title">БОНУС 3</div>
+                          <svg  width='12' height='12'>
+                          <use href='img/sprite/sprite.svg#arrow'></use>
+                          </svg>
+                        </div>
+                        <p class="bonus__item-descr panel">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <button class="bonus__item-btn" type="button">Активировать</button>
+                      </li>
+                      <li class="bonus__avaliable-item">
+                        <div class="bonus__item-head accordion">
+                          <div class="bonus__item-title">БОНУС 4</div>
+                          <svg  width='12' height='12'>
+                          <use href='img/sprite/sprite.svg#arrow'></use>
+                          </svg>
+                        </div>
+                        <p class="bonus__item-descr panel">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <button class="bonus__item-btn" type="button">Активировать</button>
+                      </li>
+                      <li class="bonus__avaliable-item">
+                        <div class="bonus__item-head accordion">
+                          <div class="bonus__item-title">БОНУС 5</div>
+                          <svg  width='12' height='12'>
+                          <use href='img/sprite/sprite.svg#arrow'></use>
+                          </svg>
+                        </div>
+                        <p class="bonus__item-descr panel">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <button class="bonus__item-btn" type="button">Активировать</button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="modal__tabs-content tabcontent" id="settings5">
             <div class="settings">
               <form class="settings__form">
                 <div class="settings__line">
