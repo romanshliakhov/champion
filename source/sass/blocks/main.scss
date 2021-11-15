@@ -1,5 +1,5 @@
 .main {
-  background-image: url("../img/background.png");
+  background-image: url("../img/background.webp");
   min-height: 2380px;
   background-position: center;
   background-size: cover;
@@ -12,7 +12,7 @@
   }
 
   &__head {
-    background-image: url("../img/logo.png");
+    background-image: url("../img/logo.webp");
     background-position: top;
     background-size: 100%;
     background-repeat: no-repeat;
@@ -22,7 +22,7 @@
   &::after {
     content: "";
     position: absolute;
-    background-image: url("../img/diamond.png");
+    background-image: url("../img/diamond.webp");
     width: 80px;
     height: 78px;
     bottom: 80px;
@@ -35,7 +35,7 @@
   &::before {
     content: "";
     position: absolute;
-    background-image: url("../img/diamond.png");
+    background-image: url("../img/diamond.webp");
     width: 129px;
     height: 129px;
     bottom: 25px;
