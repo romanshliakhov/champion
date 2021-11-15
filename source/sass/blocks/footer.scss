@@ -9,7 +9,7 @@
   &::after {
     content: "";
     position: absolute;
-    background-image: url("../img/diamond.png");
+    background-image: url("../img/diamond.webp");
     width: 70px;
     height: 80px;
     top: -40px;
@@ -78,7 +78,7 @@
     .telegram::after {
       content: "";
       position: absolute;
-      background-image: url("../img/telegram.png");
+      background-image: url("../img/telegram.webp");
       height: 100%;
       width: 100%;
       left: 0;
@@ -91,7 +91,7 @@
     .watsapp::after {
       content: "";
       position: absolute;
-      background-image: url("../img/watsapp.png");
+      background-image: url("../img/watsapp.webp");
       height: 100%;
       width: 100%;
       left: 0;
@@ -104,7 +104,7 @@
     .chat::after {
       content: "";
       position: absolute;
-      background-image: url("../img/chat.png");
+      background-image: url("../img/chat.webp");
       height: 100%;
       width: 100%;
       left: 0;
