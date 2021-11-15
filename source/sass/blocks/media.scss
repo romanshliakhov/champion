@@ -655,7 +655,12 @@
     line-height: 18px;
   }
 
-
+  .modal__tab-phone,
+  .modal__tab-password {
+    width: 169px;
+    height: 48px;
+    font-size: 18px;
+  }
 }
 
 @media (min-width:500px) and (max-width: 767px) {
@@ -887,7 +892,7 @@
     line-height: 24px;
 
     &.active {
-      width: 190px;
+      width: 160px;
       height: 48px;
     }
   }
@@ -941,7 +946,7 @@
       opacity: 1;
       top: 50%;
       transform: translateY(-50%);
-      right: -800%;
+      right: -650%;
     }
   }
 
@@ -975,7 +980,7 @@
       opacity: 1;
       top: 50%;
       transform: translateY(-50%);
-      right: -700%;
+      right: -500%;
     }
   }
 
@@ -1009,7 +1014,7 @@
       opacity: 1;
       top: 50%;
       transform: translateY(-50%);
-      right: -550%;
+      right: -400%;
     }
   }
 
@@ -1043,8 +1048,8 @@
   }
 
   .settings__input {
-    width: 250px;
-    height: 48px;
+    width: 165px;
+    height: 45px;
     font-size: 25px;
     line-height: 32px;
     text-align: center;
@@ -1114,15 +1119,15 @@
   }
 
   .modal__btn-sber::after {
-    left: 115px;
+    left: 10px;
   }
 
   .modal__btn-crypto::after {
-    left: 125px;
+    left: 25px;
   }
 
   .modal__btn-qiwi::after {
-    left: 165px;
+    left: 65px;
   }
 
   .modal__inner-btn+.modal__inner-btn {
@@ -1210,7 +1215,7 @@
       opacity: 1;
       top: 50%;
       transform: translateY(-50%);
-      right: -1000%;
+      right: -685%;
     }
   }
 
@@ -1244,7 +1249,7 @@
       opacity: 1;
       top: 50%;
       transform: translateY(-50%);
-      right: -900%;
+      right: -500%;
     }
   }
 
@@ -1268,7 +1273,7 @@
     opacity: 1;
 
     &::after {
-      content: "История платежей";
+      content: "История";
       position: absolute;
       font-size: 28px;
       line-height: 37px;
@@ -1278,7 +1283,7 @@
       opacity: 1;
       top: 50%;
       transform: translateY(-50%);
-      right: -800%;
+      right: -375%;
     }
   }
 
@@ -1294,6 +1299,13 @@
     width: 100px;
     font-size: 14px;
     line-height: 18px;
+  }
+
+  .modal__tab-phone,
+  .modal__tab-password {
+    width: 169px;
+    height: 48px;
+    font-size: 18px;
   }
 
 }
