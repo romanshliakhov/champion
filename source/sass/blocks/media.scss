@@ -1317,6 +1317,11 @@
     margin: 0 auto;
   }
 
+  body {
+    font-size: 18px;
+    line-height: 22px;
+  }
+
   .modal__container {
     width: 85%;
   }
@@ -1473,11 +1478,6 @@
     padding: 20px 0;
   }
 
-  .tabs__item+.tabs__item {
-    margin-left: 0;
-    margin-top: 20px;
-  }
-
   .modal__tab {
     width: 169px;
     height: 37px;
@@ -1501,7 +1501,7 @@
   }
 
   .modal__inner-input {
-    width: 90%;
+    width: 100%;
     height: 61px;
     font-size: 27px;
     line-height: 36px;
@@ -1561,7 +1561,11 @@
 
   .modal-content {
     width: 100%;
-    padding: 30px 32px;
+    padding: 15px;
+
+    .modal__reg-text {
+      width: 100%;
+    }
   }
 
   .accordion-item__content {
@@ -1582,7 +1586,7 @@
     }
 
     &.active {
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
   }
 
@@ -1593,8 +1597,8 @@
   .modal__inner-input,
   .profile__status-progress {
     height: 60px;
-    font-size: 29px;
-    line-height: 40px;
+    font-size: 20px;
+    line-height: 30px;
   }
 
   .profile__status-bar {
@@ -1625,12 +1629,17 @@
 
   .bonus__item-descr {
     margin-top: 5px;
-    font-size: 18px;
-    line-height: 23px;
+    font-size: 16px;
+    line-height: 20px;
   }
 
   .bonus__list {
-    justify-content: space-evenly;
+    flex-direction: column;
+  }
+
+  .bonus__item+.bonus__item {
+    margin-left: 0;
+    margin-top: 30px;
   }
 
   .modal__tab-profile {
@@ -1651,20 +1660,6 @@
 
   .modal__tab-profile.active {
     opacity: 1;
-
-    &::after {
-      content: "Профиль";
-      position: absolute;
-      font-size: 28px;
-      line-height: 37px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -800%;
-    }
   }
 
   .modal__tab-bonus {
@@ -1685,20 +1680,6 @@
 
   .modal__tab-bonus.active {
     opacity: 1;
-
-    &::after {
-      content: "Бонус";
-      position: absolute;
-      font-size: 28px;
-      line-height: 37px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -700%;
-    }
   }
 
   .modal__tab-settings {
@@ -1719,25 +1700,15 @@
 
   .modal__tab-settings.active {
     opacity: 1;
-
-    &::after {
-      content: "Управление";
-      position: absolute;
-      font-size: 28px;
-      line-height: 37px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -550%;
-    }
   }
 
   .settings__line-text {
-    font-size: 23px;
+    font-size: 18px;
     line-height: 30px;
+
+    span {
+      display: block;
+    }
   }
 
   .setting__btn-change {
@@ -1765,7 +1736,7 @@
   }
 
   .settings__input {
-    width: 250px;
+    width: 100%;
     height: 48px;
     font-size: 25px;
     line-height: 32px;
@@ -1776,21 +1747,25 @@
     margin-top: 158px;
   }
 
+  .settings__line {
+    flex-wrap: wrap;
+  }
+
   .settings__line+.settings__line {
     margin-top: 27px;
 }
 
   .modal__tabs-list {
-    justify-content: flex-start;
+    justify-content: space-between;
     height: 104px;
   }
 
   .profile {
-    margin: 60px 0 13px;
+    margin: 30px 0 13px;
   }
 
   .profile__form {
-    margin-top: 60px;
+    margin-top: 40px;
   }
 
   .profile__status {
@@ -1802,7 +1777,7 @@
   }
 
   .bonus__banner {
-    margin: 100px 0;
+    margin: 75px 0;
     height: 170px;
   }
 
@@ -1818,7 +1793,7 @@
   // другие попапы
   .modal__qiwilimits {
     width: 100%;
-    padding: 62px 48px 72px;
+    padding: 15px 15px 30px;
   }
 
   .modal__inner-middle {
@@ -1831,20 +1806,14 @@
 
   .modal__inner-btn {
     height: 80px;
-    font-size: 20px;
-    line-height: 26px;
+    font-size: 18px;
+    line-height: 25px;
   }
 
-  .modal__btn-sber::after {
-    left: 115px;
-  }
-
-  .modal__btn-crypto::after {
-    left: 125px;
-  }
-
+  .modal__btn-sber::after,
+  .modal__btn-crypto::after,
   .modal__btn-qiwi::after {
-    left: 165px;
+    display: none;
   }
 
   .modal__inner-btn+.modal__inner-btn {
@@ -1864,10 +1833,11 @@
     flex-wrap: wrap;
     max-width: 330px;
     margin: 22px auto 0;
+    justify-content: center;
   }
 
   .cashier__form-btn {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
 
   .sberbank__bonuses {
@@ -1875,8 +1845,16 @@
   }
 
   .sberbank__bonus {
-    width: 300px;
+    width: 200px;
     padding-left: 35px;
+  }
+
+  .sberbank__bonus-info {
+    top: 40%;
+  }
+
+  .sberbank__checkbox-label::before {
+    top: -2px;
   }
 
   .cashier__card {
@@ -1887,12 +1865,28 @@
     margin-top: 15px;
   }
 
+  .dropdown__button::after {
+    right: 10px;
+    width: 15px;
+    height: 10px;
+  }
+
+  .dropdown__list-card {
+    font-size: 18px;
+    text-align: center;
+  }
+
   .modal__rewind-btn {
     margin-top: 15px;
   }
 
   .modal__tabs-default {
     justify-content: space-evenly;
+    height: 165px;
+
+    .tabs__item+.tabs__item {
+      margin: 0;
+    }
   }
 
   .modal__btn-default {
@@ -1920,20 +1914,6 @@
 
   .modal__tab-add.active {
     opacity: 1;
-
-    &::after {
-      content: "Пополнение";
-      position: absolute;
-      font-size: 28px;
-      line-height: 37px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -1000%;
-    }
   }
 
   .modal__tab-cashier {
@@ -1954,20 +1934,6 @@
 
   .modal__tab-cashier.active {
     opacity: 1;
-
-    &::after {
-      content: "Вывод";
-      position: absolute;
-      font-size: 28px;
-      line-height: 37px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -900%;
-    }
   }
 
   .modal__tab-history {
@@ -1988,20 +1954,6 @@
 
   .modal__tab-history.active {
     opacity: 1;
-
-    &::after {
-      content: "История платежей";
-      position: absolute;
-      font-size: 28px;
-      line-height: 37px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -800%;
-    }
   }
 
   .history__table {
@@ -2009,13 +1961,26 @@
   }
 
   .history__row {
-    width: 90%;
+    width: 96%;
   }
 
   .history__row-item {
-    width: 100px;
+    font-size: 10px;
+    line-height: 14px;
+    height: 95%;
+  }
+
+  .history__head {
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .history__head-row {
     font-size: 14px;
-    line-height: 18px;
+  }
+
+  .history__bottom {
+    padding-left: 10px;
   }
 }
 

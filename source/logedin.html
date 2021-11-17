@@ -33,8 +33,8 @@
           <div class="enter__info">
             <div class="enter__info-item">
               <p class="enter__info-text">Игровой счёт:</p>
-              <button class="enter__info-decoration enter__info-decoration--current accordion">3000₽</button>
-              <ul class="enter__account panel">
+              <a class="enter__info-decoration enter__info-decoration--current" href="#" data-easy-toggle="#balance" data-easy-class="open" data-easy-rcoe>3000₽</a>
+              <ul class="enter__account" id="balance">
                 <li class="enter__account-item">
                   <button class="enter__account-btn" type="button" data-path="addfunds" data-animation="fade" data-speed="300">пополнить счёт</button>
                 </li>
@@ -52,23 +52,20 @@
               <span class="enter__info-decoration">33%</span>
             </div>
           </div>
-          <div class="enter__profile accordion-item">
-            <div class="enter__profile-btn accordion-item__trigger">
-              <span>Профиль</span>
-            </div>
+          <div class="enter__profile">
+            <a class="enter__profile-btn" href="#" data-easy-toggle="#categories" data-easy-class="open" data-easy-rcoe>Профиль</a>
 
-            <div class="accordion-item__content">
-              <ul class="enter__account-profile">
-                <li class="enter__account-item">
-                  <div class="enter__account-btn" data-path="profile" data-animation="fade" data-speed="300">Профиль</div>
-                </li>
-                <li class="enter__account-item">
-                  <div class="enter__account-btn" data-path="bonuses" data-animation="fade" data-speed="300">Бонусы</div>
-                </li>
-                <li class="enter__account-item">
-                  <div class="enter__account-btn">Выйти</div>
-                </li>
-            </div>
+            <ul id="categories" class="enter__account-profile">
+              <li class="enter__account-item">
+                <div class="enter__account-btn" data-path="profile" data-animation="fade" data-speed="300">Профиль</div>
+              </li>
+              <li class="enter__account-item">
+                <div class="enter__account-btn" data-path="bonuses" data-animation="fade" data-speed="300">Бонусы</div>
+              </li>
+              <li class="enter__account-item">
+                <div class="enter__account-btn">Выйти</div>
+              </li>
+            </ul>
           </div>
         </section>
 

@@ -63,7 +63,7 @@
             <div class="games__item-information">
               <div class="games__item-info">
                 <button class="games__item-status games__item-status--new">new</button>
-                <button class="games__item-status games__item-status--demo">demo</button>
+                <button class="games__item-status games__item-status--demo" onclick="demoBtn()">demo</button>
               </div>
               <a class="games__item-title" href="#">ultra hot deluxe</a>
             </div>
@@ -285,17 +285,17 @@
               <div class="modal__inner-top">
                 <div class="modal__inner-text">Введите номер телефона:</div>
                 <form class="modal__form">
-                  <input class="modal__inner-input tel" type="tel" placeholder="+X (XXX) XXX-XX-XX" data-validate-field="tel" inputmode="text">
+                  <input class="modal__inner-input tel" type="tel" placeholder="+X (XXX) XXX-XX-XX" data-validate-field="tel" inputmode="text" required>
                 </form>
               </div>
               <div class="modal__inner-bottom">
                 <div class="modal__inner-text">Введите пароль:</div>
                 <form class="modal__form">
-                  <input class="modal__inner-input" type="text" placeholder="****" data-validate-field="pas">
+                  <input class="modal__inner-input" type="text" placeholder="****" data-validate-field="pas" required>
                 </form>
               </div>
             </div>
-            <button class="modal__content-btn">войти</button>
+            <button class="modal__content-btn modal-close">войти</button>
             <button class="modal__rewind-btn">Напомнить пароль</button>
           </div>
         </div>
@@ -321,7 +321,7 @@
               <div class="modal__inner-top">
                 <div class="modal__inner-text">Введите код из смс:</div>
                 <form class="modal__form">
-                  <input class="modal__inner-input" type="text" placeholder="XX-XX-XX-XX" data-validate-field="pas">
+                  <input class="modal__inner-input" type="text" placeholder="XX-XX-XX-XX" data-validate-field="pas" required>
                 </form>
               </div>
             </div>
@@ -333,13 +333,13 @@
               <div class="modal__inner-top">
                 <div class="modal__inner-text">Введите номер телефона:</div>
                 <form class="modal__form">
-                  <input class="modal__inner-input tel" type="tel" placeholder="+X (XXX) XXX-XX-XX" data-validate-field="tel">
+                  <input class="modal__inner-input tel" type="tel" placeholder="+X (XXX) XXX-XX-XX" data-validate-field="tel" required>
                 </form>
               </div>
               <div class="modal__inner-bottom">
                 <div class="modal__inner-text">Введите пароль:</div>
                 <form class="modal__form">
-                  <input class="modal__inner-input" type="text" placeholder="****" data-validate-field="pas">
+                  <input class="modal__inner-input" type="text" placeholder="****" data-validate-field="pas" required>
                 </form>
               </div>
             </div>

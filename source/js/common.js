@@ -25,142 +25,145 @@ let bonusBanner = new Swiper('.bonus__banner-swiper', {
 
 // modals
 class Modal {
-  constructor (options) {
-      let defaultOptions = {
-          onOpen: () => {},
-          onClose: () => {},
-      };
-      this.options = Object.assign(defaultOptions, options);
-      this.modal = document.querySelector('.modal');
-      this.speed = false;
-      this.animation = false;
-      this.isOpen = false;
-      this.modalContainer = false;
-      this.previousActiveElement = false;
-      this.fixBlocks = document.querySelectorAll('.fix-block');
-      this.focusElements = [
-          'a[href]',
-          'input',
-          'button',
-          'select',
-          'textarea',
-          '[tabindex]'
-      ];
-      this.events();
+  constructor(options) {
+    let defaultOptions = {
+      onOpen: () => {},
+      onClose: () => {},
+    };
+    this.options = Object.assign(defaultOptions, options);
+    this.modal = document.querySelector('.modal');
+    this.speed = false;
+    this.animation = false;
+    this.isOpen = false;
+    this.modalContainer = false;
+    this.previousActiveElement = false;
+    this.fixBlocks = document.querySelectorAll('.fix-block');
+    this.focusElements = [
+      'a[href]',
+      'input',
+      'button',
+      'select',
+      'textarea',
+      '[tabindex]'
+    ];
+    this.events();
   }
 
   events() {
-      if (this.modal) {
-          document.addEventListener('click', function (e) {
-              const clickedElement = e.target.closest('[data-path]');
-              if (clickedElement) {
-                  if (this.isOpen) {
-                    this.close();
-                  }
-                  let target = clickedElement.dataset.path;
-                  let animation = clickedElement.dataset.animation;
-                  let speed = clickedElement.dataset.speed;
-                  this.animation = animation ? animation : 'fade';
-                  this.speed = speed ? parseInt(speed) : 300;
-                  this.modalContainer = document.querySelector(`[data-target="${target}"]`);
-                  this.open();
-                  return;
-              }
+    if (this.modal) {
+      document.addEventListener('click', function (e) {
+        const clickedElement = e.target.closest('[data-path]');
+        if (clickedElement) {
+          if (this.isOpen) {
+            this.close();
+          }
+          let target = clickedElement.dataset.path;
+          let animation = clickedElement.dataset.animation;
+          let speed = clickedElement.dataset.speed;
+          this.animation = animation ? animation : 'fade';
+          this.speed = speed ? parseInt(speed) : 300;
+          this.modalContainer = document.querySelector(`[data-target="${target}"]`);
+          this.open();
+          return;
+        }
 
-              if (e.target.closest('.modal-close')) {
-                  this.close();
-                  return;
-              }
-          }.bind(this));
+        if (e.target.closest('.modal-close')) {
+          this.close();
+          return;
+        }
+      }.bind(this));
 
-          window.addEventListener('keydown', function (e) {
-              if (e.keyCode == 27) {
-                  if (this.isOpen) {
-                      this.close();
-                  }
-              }
-          }.bind(this));
+      window.addEventListener('keydown', function (e) {
+        if (e.keyCode == 27) {
+          if (this.isOpen) {
+            this.close();
+          }
+        }
+      }.bind(this));
 
-          this.modal.addEventListener('click', function (e) {
-              if (!e.target.classList.contains('.modal__container') && !e.target.closest('.modal__container') && this.isOpen) {
-              this.close();
-              }
-          }.bind(this));
-      }
+      this.modal.addEventListener('click', function (e) {
+        if (!e.target.classList.contains('.modal__container') && !e.target.closest('.modal__container') && this.isOpen) {
+          this.close();
+        }
+      }.bind(this));
+    }
   }
 
   open() {
-      this.previousActiveElement = document.activeElement;
+    this.previousActiveElement = document.activeElement;
 
-      this.modal.style.setProperty('--transition-time', `${this.speed / 1000}s`);
-      this.modal.classList.add('is-open');
-      this.disableScroll();
+    this.modal.style.setProperty('--transition-time', `${this.speed / 1000}s`);
+    this.modal.classList.add('is-open');
+    this.disableScroll();
 
-      this.modalContainer.classList.add('modal-open');
-      this.modalContainer.classList.add(this.animation);
+    this.modalContainer.classList.add('modal-open');
+    this.modalContainer.classList.add(this.animation);
 
-      setTimeout(() => {
-          this.modalContainer.classList.add('animate-open');
-          this.options.onOpen(this);
-          this.isOpen = true;
-          this.focusTrap();
-      }, this.speed);
+    setTimeout(() => {
+      this.modalContainer.classList.add('animate-open');
+      this.options.onOpen(this);
+      this.isOpen = true;
+      this.focusTrap();
+    }, this.speed);
   }
 
   close() {
-      if (this.modalContainer) {
-          this.modalContainer.classList.remove('animate-open');
-          this.modalContainer.classList.remove(this.animation);
-          this.modal.classList.remove('is-open');
-          this.modalContainer.classList.remove('modal-open');
+    if (this.modalContainer) {
+      this.modalContainer.classList.remove('animate-open');
+      this.modalContainer.classList.remove(this.animation);
+      this.modal.classList.remove('is-open');
+      this.modalContainer.classList.remove('modal-open');
 
-          this.enableScroll();
-          this.options.onClose(this);
-          this.isOpen = false;
-          this.focusTrap();
-      }
+      this.enableScroll();
+      this.options.onClose(this);
+      this.isOpen = false;
+      this.focusTrap();
+    }
   }
 
   focusCatch(e) {
-      const focusable = this.modalContainer.querySelectorAll(this.focusElements);
-      const focusArray = Array.prototype.slice.call(focusable);
-      const focusedIndex = focusArray.indexOf(document.activeElement);
+    const focusable = this.modalContainer.querySelectorAll(this.focusElements);
+    const focusArray = Array.prototype.slice.call(focusable);
+    const focusedIndex = focusArray.indexOf(document.activeElement);
 
-      if (e.shiftKey && focusedIndex === 0) {
-        focusArray[focusArray.length - 1].focus();
-        e.preventDefault();
-      }
+    if (e.shiftKey && focusedIndex === 0) {
+      focusArray[focusArray.length - 1].focus();
+      e.preventDefault();
+    }
 
-      if (!e.shiftKey && focusedIndex === focusArray.length - 1) {
-        focusArray[0].focus();
-        e.preventDefault();
-      }
+    if (!e.shiftKey && focusedIndex === focusArray.length - 1) {
+      focusArray[0].focus();
+      e.preventDefault();
+    }
   }
 
   focusTrap() {
-      const focusable = this.modalContainer.querySelectorAll(this.focusElements);
-      if (this.isOpen) {
-          focusable[0].focus();
-      } else {
-          this.previousActiveElement.focus();
-      }
+    const focusable = this.modalContainer.querySelectorAll(this.focusElements);
+    if (this.isOpen) {
+      focusable[0].focus();
+    } else {
+      this.previousActiveElement.focus();
+    }
   }
 
   disableScroll() {
-      let pagePosition = window.scrollY;
-      this.lockPadding();
-      document.body.classList.add('disable-scroll');
-      document.body.dataset.position = pagePosition;
-      document.body.style.top = -pagePosition + 'px';
+    let pagePosition = window.scrollY;
+    this.lockPadding();
+    document.body.classList.add('disable-scroll');
+    document.body.dataset.position = pagePosition;
+    document.body.style.top = -pagePosition + 'px';
   }
 
   enableScroll() {
-      let pagePosition = parseInt(document.body.dataset.position, 10);
-      this.unlockPadding();
-      document.body.style.top = 'auto';
-      document.body.classList.remove('disable-scroll');
-      window.scroll({ top: pagePosition, left: 0 });
-      document.body.removeAttribute('data-position');
+    let pagePosition = parseInt(document.body.dataset.position, 10);
+    this.unlockPadding();
+    document.body.style.top = 'auto';
+    document.body.classList.remove('disable-scroll');
+    window.scroll({
+      top: pagePosition,
+      left: 0
+    });
+    document.body.removeAttribute('data-position');
   }
 
   lockPadding() {
@@ -171,21 +174,18 @@ class Modal {
     document.body.style.paddingRight = paddingOffset;
   }
 
-  unlockPadding () {
+  unlockPadding() {
     this.fixBlocks.forEach((el) => {
-    el.style.paddingRight = '0px';
+      el.style.paddingRight = '0px';
     });
     document.body.style.paddingRight = '0px';
   }
 }
 
-// let currentTabContent = [];
-// let currentTabLinks = [];
-
 const modal = new Modal({
   onOpen: (modal) => {
-      console.log(modal);
-      console.log('opened');
+    console.log(modal);
+    console.log('opened');
   },
   onClose: () => {
     const bonusBanners = [...document.getElementsByClassName('bonus__banner')];
@@ -195,24 +195,6 @@ const modal = new Modal({
     }
   },
 });
-
-// function tabsCleanup() {
-//   // remove 'active' class names
-//   currentTabContent.forEach(tabContent => tabContent.classList.remove('active'));
-//   currentTabLinks.forEach(tabLink => tabLink.classList.remove("active"));
-
-//   // set the first tab as active
-//   const firstTabButton = currentTabLinks[0];
-//   const firstTabContent = currentTabContent.find(element => element.id === firstTabButton.dataset.tabContentId);
-
-//   firstTabButton.classList.add('active');
-//   firstTabContent.classList.add('active');
-
-//   currentTabContent = [];
-//   currentTabLinks = [];
-// }
-
-//
 
 // disable
 const disableBannerBtn = [...document.querySelectorAll('.bonus__tab')];
@@ -224,7 +206,7 @@ disableBannerBtn.forEach((disableBtn) => {
   });
 });
 
-// tab Andrey
+// tabs
 function itemTabs(evt) {
   const navName = evt.target.dataset.tabContentId;
 
@@ -267,43 +249,43 @@ function bannerTabs(evt) {
 
 // dropdown
 document.querySelectorAll('.dropdown').forEach(function (dropDownWrapper) {
-	const dropDownBtn = dropDownWrapper.querySelector('.dropdown__button');
-	const dropDownList = dropDownWrapper.querySelector('.dropdown__list');
-	const dropDownListItems = dropDownList.querySelectorAll('.dropdown__list-item');
-	const dropDownInput = dropDownWrapper.querySelector('.dropdown__input-hidden');
+  const dropDownBtn = dropDownWrapper.querySelector('.dropdown__button');
+  const dropDownList = dropDownWrapper.querySelector('.dropdown__list');
+  const dropDownListItems = dropDownList.querySelectorAll('.dropdown__list-item');
+  const dropDownInput = dropDownWrapper.querySelector('.dropdown__input-hidden');
 
-		dropDownBtn.addEventListener('click', function (e) {
+  dropDownBtn.addEventListener('click', function (e) {
     console.log("click :>> ", "dropDownBtn");
-		dropDownList.classList.toggle('dropdown__list--visible');
-        this.classList.add('dropdown__button--active');
-	});
+    dropDownList.classList.toggle('dropdown__list--visible');
+    this.classList.add('dropdown__button--active');
+  });
 
-	dropDownListItems.forEach(function (listItem) {
-		listItem.addEventListener('click', function (e) {
+  dropDownListItems.forEach(function (listItem) {
+    listItem.addEventListener('click', function (e) {
       console.log("click :>> ", "dropDownListItem");
-			e.stopPropagation();
-			dropDownBtn.innerHTML = this.innerHTML;
-			dropDownBtn.focus();
-			dropDownInput.value = this.dataset.value;
-			dropDownList.classList.remove('dropdown__list--visible');
+      e.stopPropagation();
+      dropDownBtn.innerHTML = this.innerHTML;
+      dropDownBtn.focus();
+      dropDownInput.value = this.dataset.value;
+      dropDownList.classList.remove('dropdown__list--visible');
       this.classList.remove('dropdown__button--active');
-		});
-	});
+    });
+  });
 
-	document.addEventListener('click', function (e) {
+  document.addEventListener('click', function (e) {
     console.log("click :>> ", dropDownBtn.contains(e.target));
-		if (!dropDownBtn.contains(e.target)) {
-			dropDownBtn.classList.remove('dropdown__button--active');
-			dropDownList.classList.remove('dropdown__list--visible');
-		}
-	});
+    if (!dropDownBtn.contains(e.target)) {
+      dropDownBtn.classList.remove('dropdown__button--active');
+      dropDownList.classList.remove('dropdown__list--visible');
+    }
+  });
 
-	document.addEventListener('keydown', function (e) {
-		if (e.key === 'Tab' || e.key === 'Escape') {
-			dropDownBtn.classList.remove('dropdown__button--active');
-			dropDownList.classList.remove('dropdown__list--visible');
-		}
-	});
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Tab' || e.key === 'Escape') {
+      dropDownBtn.classList.remove('dropdown__button--active');
+      dropDownList.classList.remove('dropdown__list--visible');
+    }
+  });
 });
 
 // calculator
@@ -313,47 +295,48 @@ calculatorElements.forEach(calculatorElemnt => {
   const input = calculatorElemnt.querySelector('.modal__inner-input');
 
   calculatorElemnt.addEventListener('click', evt => {
-  if (evt.target.matches('.cashier__form-btn')) {
-  input.value = evt.target.value;
-  } else if (evt.target.matches('.action')) {
-  // ...
-  }
+    if (evt.target.matches('.cashier__form-btn')) {
+      input.value = evt.target.value;
+    } else if (evt.target.matches('.action')) {
+      // ...
+    }
   });
 });
 
 // imput Mask
-window.addEventListener("DOMContentLoaded", function() {
-  [].forEach.call( document.querySelectorAll('.tel'), function(input) {
-  var keyCode;
-  function mask(event) {
+window.addEventListener("DOMContentLoaded", function () {
+  [].forEach.call(document.querySelectorAll('.tel'), function (input) {
+    var keyCode;
+
+    function mask(event) {
       event.keyCode && (keyCode = event.keyCode);
       var pos = this.selectionStart;
       if (pos < 3) event.preventDefault();
       var matrix = "+7 (___) ___-__-__",
-          i = 0,
-          def = matrix.replace(/\D/g, ""),
-          val = this.value.replace(/\D/g, ""),
-          new_value = matrix.replace(/[_\d]/g, function(a) {
-              return i < val.length ? val.charAt(i++) || def.charAt(i) : a
-          });
+        i = 0,
+        def = matrix.replace(/\D/g, ""),
+        val = this.value.replace(/\D/g, ""),
+        new_value = matrix.replace(/[_\d]/g, function (a) {
+          return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+        });
       i = new_value.indexOf("_");
       if (i != -1) {
-          i < 5 && (i = 3);
-          new_value = new_value.slice(0, i)
+        i < 5 && (i = 3);
+        new_value = new_value.slice(0, i)
       }
       var reg = matrix.substr(0, this.value.length).replace(/_+/g,
-          function(a) {
-              return "\\d{1," + a.length + "}"
-          }).replace(/[+()]/g, "\\$&");
+        function (a) {
+          return "\\d{1," + a.length + "}"
+        }).replace(/[+()]/g, "\\$&");
       reg = new RegExp("^" + reg + "$");
       if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value = new_value;
-      if (event.type == "blur" && this.value.length < 5)  this.value = "";
-  }
+      if (event.type == "blur" && this.value.length < 5) this.value = "";
+    }
 
-  input.addEventListener("input", mask, false);
-  input.addEventListener("focus", mask, false);
-  input.addEventListener("blur", mask, false);
-  input.addEventListener("keydown", mask, false)
+    input.addEventListener("input", mask, false);
+    input.addEventListener("focus", mask, false);
+    input.addEventListener("blur", mask, false);
+    input.addEventListener("keydown", mask, false)
 
   });
 });
@@ -363,7 +346,7 @@ var acc = document.getElementsByClassName("accordion");
 var i;
 
 for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
+  acc[i].addEventListener("click", function () {
     this.classList.toggle("active");
     var panel = this.nextElementSibling;
     if (panel.style.maxHeight) {
@@ -374,14 +357,74 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 
-// accordion
-document.querySelectorAll('.accordion-item__trigger').forEach((item) =>
-  item.addEventListener('click', () => {
-    const parent = item.parentNode;
+// menu
+(function () {
+  'use strict';
 
-    parent.classList.toggle('accordion-item--active');
-  })
-);
+  // Прослушиваем событие CLICK
+  document.addEventListener('click', EasyTogglerHandler);
+
+  /**
+   * Основная функция-обработчик EasyToggler.
+   */
+  function EasyTogglerHandler(event) {
+
+    // Задаём основную кнопку EasyToggler
+    const EY_BTN = event.target.closest('[data-easy-toggle]');
+
+    /**
+     * Проверка нажатия на основную кнопку EasyToggle и
+     * проверка на нажатие вне его кнопок
+     */
+
+    if (EY_BTN) {
+      event.preventDefault();
+      let ey_target = EY_BTN.getAttribute('data-easy-toggle');
+      let ey_class = EY_BTN.getAttribute('data-easy-class');
+
+      try {
+        document.querySelectorAll('[data-easy-toggle]').forEach(easyBlock => {
+          if (!easyBlock.hasAttribute('data-easy-parallel') && easyBlock !== EY_BTN) {
+            document.querySelector(easyBlock.getAttribute('data-easy-toggle')).classList.remove(easyBlock.getAttribute('data-easy-class'));
+          }
+        });
+
+        document.querySelector(ey_target).classList.toggle(ey_class);
+      } catch (ey_error) {
+        console.warn('EasyToggler.js : Блок ' + ey_target + ' не существует');
+      }
+    }
+
+    if (!EY_BTN) {
+      // Получаем массив из кнопок с атрибутом [data-easy-rcoe]
+      let ey_rcoe_block_targets = document.querySelectorAll('[data-easy-rcoe]');
+
+      /**
+       * Вешаем событие на каждую кнопку, у которой указан
+       * атрибут [data-easy-rcoe], чтобы удалять заданный класс
+       */
+      Array.from(ey_rcoe_block_targets).forEach.call(ey_rcoe_block_targets, function (ey_rcoe_block_target) {
+        let ey_rcoe_block = ey_rcoe_block_target.getAttribute('data-easy-toggle'), // Получаем нацеленный блок
+          ey_rcoe_block_class = ey_rcoe_block_target.getAttribute('data-easy-class'); // Удаляем заданный класс
+
+        /* Если нажимаем не на активный блок, то удаляем заданный класс */
+        if (!event.target.closest(ey_rcoe_block)) {
+          try {
+            document.querySelector(ey_rcoe_block).classList.remove(ey_rcoe_block_class);
+          } catch (ey_error) {
+            console.warn('EasyToggler.js : Блок ' + ey_rcoe_block + ' не существует');
+          }
+        }
+
+      });
+    }
+
+  }
+
+})();
 
 
-
+// click
+function demoBtn() {
+  alert('Текст');
+}

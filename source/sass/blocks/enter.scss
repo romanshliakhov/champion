@@ -153,6 +153,7 @@
   }
 
   &__account {
+    display: none;
     position: absolute;
     width: 225px;
     height: auto;
@@ -161,9 +162,16 @@
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25), inset -5px -5px 5px rgba(49, 41, 56, 0.15);
     border-radius: 8px;
     padding: 0 16px;
+    z-index: 100;
+
+    &.open {
+      display: block;
+    }
   }
 
   &__account-profile {
+    display: none;
+    position: absolute;
     width: 210px;
     top: 60px;
     background-color: #fff;
@@ -172,6 +180,10 @@
     padding: 0 13px;
     transition: 0.3s all;
     z-index: 100;
+
+    &.open {
+      display: block;
+    }
   }
 
   &__account-item {
