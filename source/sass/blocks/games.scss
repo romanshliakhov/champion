@@ -64,7 +64,7 @@
 
     &--demo {
       width: 62px;
-      background: #04AE34;
+      background-color: #04AE34;
       border-radius: 4px;
       margin-left: -5px;
     }
@@ -81,8 +81,47 @@
     }
   }
 
+  &__wrapper-demo {
+    position: relative;
+    display: flex;
+    height: 26px;
+
+    &:hover {
+      .games__item-status--demo {
+        background-color: rgba(4, 174, 52, 0.75);
+      }
+
+      &::after {
+        display: block;
+      }
+    }
+
+    &::after {
+      content: 'Чтобы играть без ограничений, пожалуйста, выполните вход';
+      position: absolute;
+      display: none;
+      top: 10px;
+      left: 20px;
+      background-color: #fff;
+      box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25), inset -5px -5px 5px rgba(49, 41, 56, 0.15);
+      border-radius: 8px;
+      width: 360px;
+      height: 148px;
+      padding: 49px 45px;
+      font-size: 20px;
+      line-height: 26px;
+      font-weight: 400;
+      color: #000000;
+      z-index: 20;
+      text-transform: none;
+    }
+  }
+
   &__item-title {
     text-transform: uppercase;
   }
 }
+
+
+
 

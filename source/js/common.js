@@ -357,7 +357,7 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 
-// menu
+// menu dropdown
 (function () {
   'use strict';
 
@@ -415,12 +415,9 @@ for (i = 0; i < acc.length; i++) {
             console.warn('EasyToggler.js : Блок ' + ey_rcoe_block + ' не существует');
           }
         }
-
       });
     }
-
   }
-
 })();
 
 
