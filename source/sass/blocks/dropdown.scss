@@ -54,7 +54,7 @@
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
   border-radius: 12px;
   margin: 0 auto;
-  padding: 0 30px;
+  padding: 0 60px;
 }
 
 .dropdown__list--visible {
@@ -71,6 +71,7 @@
   transition: all 0.3s;
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 80px;
   cursor: pointer;
   border-bottom: 1px solid #DAD7D7;
@@ -85,12 +86,27 @@
   display: none;
 }
 
-.dropdown__list-card {
-  margin: 0 auto;
+.dropdown__list-card,
+.dropdown__list-name {
   color: #3B2158;
 
   &--active {
     color: #DAD7D7;
   }
+}
 
+.dropdown__list-card {
+  margin-right: 10px;
+}
+
+.dropdown__list-rename {
+  position: absolute;
+  right: -30px;
+}
+
+.dropdown__button,
+.dropdown__list-card--active {
+  .dropdown__list-rename {
+    display: none;
+  }
 }
