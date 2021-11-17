@@ -74,9 +74,42 @@
 .sberbank__bonus-info {
   position: absolute;
   right: 0;
-  top: 50%;
+  top: 30%;
   transform: translateY(-50%);
   cursor: pointer;
+}
+
+.sberbank__bonus-tollbar {
+  position: relative;
+  width: 24px;
+  height: 24px;
+
+  &:hover {
+    &::after {
+      display: block;
+    }
+  }
+
+
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    display: none;
+    top: 10px;
+    left: 25px;
+    background-color: #fff;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.25), inset -5px -5px 5px rgba(49, 41, 56, 0.15);
+    border-radius: 8px;
+    width: 360px;
+    height: 320px;
+    padding: 49px 45px;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 400;
+    color: #000000;
+    z-index: 20;
+    text-transform: none;
+  }
 }
 
 .sberbank__btn {
