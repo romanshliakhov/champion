@@ -4,7 +4,6 @@
   }
 }
 
-
 @media (min-width: 1000px) and (max-width: 1600px) {
   .container {
     max-width: 1000px;
@@ -672,6 +671,12 @@
   .enter__account-profile {
     width: 190px;
   }
+
+  .games__wrapper-demo::after {
+    width: 290px;
+    height: 133px;
+    padding: 40px 13px;
+  }
 }
 
 @media (min-width:500px) and (max-width: 767px) {
@@ -1322,6 +1327,16 @@
   .enter__account-profile {
     width: 170px;
     left: -90px;
+  }
+
+  .games__wrapper-demo::after {
+    width: 210px;
+    height: 80px;
+    padding: 25px 13px;
+    font-size: 14px;
+    line-height: 18px;
+    left: -20px;
+    top: 15px;
   }
 
 }
@@ -2001,6 +2016,16 @@
 
   .enter__account-profile {
     width: 185px;
+  }
+
+  .games__wrapper-demo::after {
+    width: 210px;
+    height: 80px;
+    padding: 25px 13px;
+    font-size: 14px;
+    line-height: 18px;
+    left: -20px;
+    top: 15px;
   }
 }
 
