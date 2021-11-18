@@ -661,6 +661,10 @@
     height: 48px;
     font-size: 18px;
   }
+
+  .enter__account-profile {
+    width: 190px;
+  }
 }
 
 @media (min-width:500px) and (max-width: 767px) {
@@ -1306,6 +1310,11 @@
     width: 169px;
     height: 48px;
     font-size: 18px;
+  }
+
+  .enter__account-profile {
+    width: 170px;
+    left: -90px;
   }
 
 }
@@ -1981,6 +1990,10 @@
 
   .history__bottom {
     padding-left: 10px;
+  }
+
+  .enter__account-profile {
+    width: 185px;
   }
 }
 
