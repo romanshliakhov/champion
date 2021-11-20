@@ -294,20 +294,6 @@
 
   .modal__tab-profile.active {
     opacity: 1;
-
-    &::after {
-      content: "Профиль";
-      position: absolute;
-      font-size: 28px;
-      line-height: 37px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -800%;
-    }
   }
 
   .modal__tab-bonus {
@@ -328,20 +314,6 @@
 
   .modal__tab-bonus.active {
     opacity: 1;
-
-    &::after {
-      content: "Бонус";
-      position: absolute;
-      font-size: 28px;
-      line-height: 37px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -700%;
-    }
   }
 
   .modal__tab-settings {
@@ -362,20 +334,6 @@
 
   .modal__tab-settings.active {
     opacity: 1;
-
-    &::after {
-      content: "Управление";
-      position: absolute;
-      font-size: 28px;
-      line-height: 37px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -550%;
-    }
   }
 
   .settings__line-text {
@@ -563,20 +521,6 @@
 
   .modal__tab-add.active {
     opacity: 1;
-
-    &::after {
-      content: "Пополнение";
-      position: absolute;
-      font-size: 28px;
-      line-height: 37px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -1000%;
-    }
   }
 
   .modal__tab-cashier {
@@ -597,20 +541,6 @@
 
   .modal__tab-cashier.active {
     opacity: 1;
-
-    &::after {
-      content: "Вывод";
-      position: absolute;
-      font-size: 28px;
-      line-height: 37px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -900%;
-    }
   }
 
   .modal__tab-history {
@@ -631,20 +561,6 @@
 
   .modal__tab-history.active {
     opacity: 1;
-
-    &::after {
-      content: "История платежей";
-      position: absolute;
-      font-size: 28px;
-      line-height: 37px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -800%;
-    }
   }
 
   .history__table {
@@ -677,6 +593,20 @@
     height: 133px;
     padding: 40px 13px;
   }
+
+  .tablinks.active + span {
+    display: block;
+  }
+
+  .sberbank__bonus-tollbar::after {
+    top: 25px;
+    left: -210px;
+    z-index: 20;
+    height: auto;
+    width: 450px;
+
+  }
+
 }
 
 @media (min-width:500px) and (max-width: 767px) {
@@ -950,20 +880,6 @@
 
   .modal__tab-profile.active {
     opacity: 1;
-
-    &::after {
-      content: "Профиль";
-      position: absolute;
-      font-size: 28px;
-      line-height: 37px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -650%;
-    }
   }
 
   .modal__tab-bonus {
@@ -984,20 +900,6 @@
 
   .modal__tab-bonus.active {
     opacity: 1;
-
-    &::after {
-      content: "Бонус";
-      position: absolute;
-      font-size: 28px;
-      line-height: 37px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -500%;
-    }
   }
 
   .modal__tab-settings {
@@ -1018,20 +920,6 @@
 
   .modal__tab-settings.active {
     opacity: 1;
-
-    &::after {
-      content: "Управление";
-      position: absolute;
-      font-size: 28px;
-      line-height: 37px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -400%;
-    }
   }
 
   .settings__line-text {
@@ -1219,20 +1107,6 @@
 
   .modal__tab-add.active {
     opacity: 1;
-
-    &::after {
-      content: "Пополнение";
-      position: absolute;
-      font-size: 28px;
-      line-height: 37px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -685%;
-    }
   }
 
   .modal__tab-cashier {
@@ -1253,20 +1127,6 @@
 
   .modal__tab-cashier.active {
     opacity: 1;
-
-    &::after {
-      content: "Вывод";
-      position: absolute;
-      font-size: 28px;
-      line-height: 37px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -500%;
-    }
   }
 
   .modal__tab-history {
@@ -1287,20 +1147,6 @@
 
   .modal__tab-history.active {
     opacity: 1;
-
-    &::after {
-      content: "История";
-      position: absolute;
-      font-size: 28px;
-      line-height: 37px;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: #fff;
-      opacity: 1;
-      top: 50%;
-      transform: translateY(-50%);
-      right: -375%;
-    }
   }
 
   .history__table {
@@ -1339,6 +1185,22 @@
     top: 15px;
   }
 
+  .tablinks.active + span {
+    display: block;
+    max-width: 44%;
+    text-align: center;
+  }
+
+  .sberbank__bonus-tollbar::after {
+    top: 25px;
+    left: -210px;
+    z-index: 20;
+    padding: 20px 15px;
+    height: auto;
+    width: 270px;
+    font-size: 16px;
+    line-height: 18px;
+  }
 }
 
 @media (min-width: 320px) and (max-width: 499px) {
@@ -1789,6 +1651,7 @@
   .modal__tabs-list {
     justify-content: space-between;
     height: 104px;
+    justify-content: space-evenly;
   }
 
   .profile {
@@ -2026,6 +1889,21 @@
     line-height: 18px;
     left: -20px;
     top: 15px;
+  }
+
+  .sberbank__bonus-tollbar::after {
+    top: 25px;
+    left: -210px;
+    z-index: 20;
+    padding: 20px 15px;
+    height: auto;
+    width: 270px;
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .sberbank__checkbox-label::after {
+    top: 4px;
   }
 }
 

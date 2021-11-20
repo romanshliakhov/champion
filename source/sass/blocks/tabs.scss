@@ -23,3 +23,15 @@
     display: block;
   }
 }
+
+.tabs__item span {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 28px;
+  line-height: 37px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
